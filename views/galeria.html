@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="oscuro"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Venta de productos de gimnasio online de alta calidad y accesorios para entrenamiento">
+    <meta name="keywords" content="gimnasio, productos de gimnasio, accesorios de entrenamiento, venta online">
+    <meta name="author" content="Miguel Yoel Gonzalez Martin">
+    <title>Vulkania Heavy - Galería</title>
+    <!-- Favicon y manifest -->
+        <link rel="icon" type="image/png" href="../assets/favicon/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg">
+        <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+        <meta name="apple-mobile-web-app-title" content="MyWebSite">
+        <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <!-- Estilos y scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/galeria.css">
+    <script src="../js/index.js" defer></script>
+    <script src="../js/galeria.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="./index.html" class="logo">⚡ VULKANIA <span>HEAVY</span></a>
+            <nav class="nav-links">
+                <ul>
+                    <li><button type="button" id="tema" class="tema" aria-label="Cambiar tema">🌙</button></li>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="./galeria.html" class="active">Galería</a></li>
+                    <li><a href="./presupuesto.html">Tienda y presupuesto</a></li>
+                    <li><a href="./contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="section-title">Galería de <span>Productos</span></h1>
+
+        <div class="botones">
+            <button type="button" class="filtro active" value="Todos">Todos</button>
+            <button type="button" class="filtro" value="Barras y discos">Barras y discos</button>
+            <button type="button" class="filtro" value="Mancuernas y Kettlebells">Mancuernas y Kettlebells</button>
+            <button type="button" class="filtro" value="Racks y Bancos">Racks y Bancos</button>
+        </div>
+
+        <div class="galeria">
+            <div class="producto" data-categoria="Barras y discos">
+                <img class="producto-img" src="../assets/images/producto1.jpg" alt="Barra Olímpica Profesional de 20kg" width="400" height="400">
+                <p class="producto-parrafo">Barra Olímpica Profesional de 20kg</p>
+            </div>
+            <div class="producto" data-categoria="Mancuernas y Kettlebells">
+                <img class="producto-img" src="../assets/images/producto2.jpg" alt="Set de Mancuernas (2.5kg - 50kg)" width="400" height="400">
+                <p class="producto-parrafo">Set de Mancuernas (2.5kg - 50kg)</p>
+            </div>
+            <div class="producto" data-categoria="Racks y Bancos">
+                <img class="producto-img" src="../assets/images/producto3.jpg" alt="Rack de Potencia Profesional" width="400" height="400">
+                <p class="producto-parrafo">Rack de Potencia Profesional</p>
+            </div>
+            <div class="producto" data-categoria="Barras y discos">
+                <img class="producto-img" src="../assets/images/producto4.jpg" alt="Discos Bumper de Caucho Vírgenes" width="400" height="400">
+                <p class="producto-parrafo">Discos Bumper de Caucho Vírgenes</p>
+            </div>
+            <div class="producto" data-categoria="Racks y Bancos">
+                <img class="producto-img" src="../assets/images/producto5.jpg" alt="Banco de Entrenamiento Ajustable" width="400" height="400">
+                <p class="producto-parrafo">Banco de Entrenamiento Ajustable</p>
+            </div>
+            <div class="producto" data-categoria="Mancuernas y Kettlebells">
+                <img class="producto-img" src="../assets/images/producto6.jpg" alt="Kettlebells de Acero Competición" width="400" height="400">
+                <p class="producto-parrafo">Kettlebells de Acero Competición</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3><a href="./index.html">Vulkania Heavy</a></h3>
+                <p>Tu centro especializado en equipamiento de alta resistencia, powerlifting y entrenamiento funcional en Tenerife.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook" rel="noopener">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com" target="_blank" aria-label="Instagram" rel="noopener">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com" target="_blank" aria-label="YouTube" rel="noopener">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Enlaces Rápidos</h3>
+                <p><a href="../index.html">Inicio</a></p>
+                <p><a href="./galeria.html">Galería de Productos</a></p>
+                <p><a href="./presupuesto.html">Calcula tu Presupuesto</a></p>
+                <p><a href="./contacto.html">Ubicación y Contacto</a></p>
+            </div>
+            <div class="footer-col">
+                <h3><a href="./contacto.html">Contacto</a></h3>
+                <p>Calle Castillo 45, Santa Cruz de Tenerife</p>
+                <p>Tel: +34 922 000 111</p>
+                <p>Email: contacto@vulkaniaheavy.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vulkania Heavy. Todos los derechos reservados. | <a href="../views/politica-privacidad.html">Aviso Legal y Política de Privacidad</a></p>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+        <button type="button" id="boton-lightbox" class="boton-lightbox" aria-label="Cerrar imagen">✖</button>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+</body>
+</html>

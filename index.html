@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="oscuro"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Venta de productos de gimnasio online de alta calidad y accesorios para entrenamiento">
+    <meta name="keywords" content="gimnasio, productos de gimnasio, accesorios de entrenamiento, venta online">
+    <meta name="author" content="Miguel Yoel Gonzalez Martin">
+    <title>Vulkania Heavy - Inicio</title>
+    <!-- Favicon y manifest -->
+        <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg">
+        <link rel="shortcut icon" href="./assets/favicon/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+        <meta name="apple-mobile-web-app-title" content="MyWebSite">
+        <link rel="manifest" href="./assets/favicon/site.webmanifest">
+    <!-- Estilos y scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="./index.html" class="logo">⚡ VULKANIA <span>HEAVY</span></a>
+            <nav class="nav-links">
+                <ul>
+                    <li><button type="button" id="tema" class="tema" aria-label="Cambiar tema">🌙</button></li>
+                    <li><a href="./index.html" class="active">Inicio</a></li>
+                    <li><a href="./views/galeria.html">Galería</a></li>
+                    <li><a href="./views/presupuesto.html">Tienda y presupuesto</a></li>
+                    <li><a href="./views/contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Sección 1: Portada -->
+        <section class="banner">
+            <div class="banner-content">
+                <h1>Bienvenido a Vulkania Heavy</h1>
+                <p>Equipamiento profesional de gimnasio, barras olímpicas, mancuernas de alta resistencia y accesorios diseñados para atletas exigentes.</p>
+                <a href="./views/galeria.html" class="btn">Ver Catálogo</a>
+            </div>
+        </section>
+
+        <!-- Sección 2: Productos Destacados -->
+        <section class="productos-destacados">
+            <h2 class="section-title">Productos <span>Destacados</span></h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <img class="card-img" src="./assets/images/producto1.jpg" alt="barra olímpica" width="400" height="400">
+                    <h3>Barras Olímpicas</h3>
+                    <p>Alta calidad y resistencia para tus entrenamientos de powerlifting y fuerza.</p>  
+                    <a class="btn-cards" href="./views/galeria.html?categoria=Barras%20y%20discos">Ver Producto</a>        
+                </div>
+
+                <div class="card">
+                    <img class="card-img" src="./assets/images/producto2.jpg" alt="mancuernas" width="400" height="400">
+                    <h3>Mancuernas</h3>
+                    <p>Alta calidad y resistencia para tus entrenamientos de powerlifting y fuerza.</p>  
+                    <a class="btn-cards" href="./views/galeria.html?categoria=Mancuernas%20y%20Kettlebells">Ver Producto</a>        
+                </div>
+
+                <div class="card">
+                    <img class="card-img" src="./assets/images/producto3.jpg" alt="racks de potencia" width="400" height="400">
+                    <h3>Racks de Potencia</h3>
+                    <p>Alta calidad y resistencia para tus entrenamientos de powerlifting y fuerza.</p>  
+                    <a class="btn-cards" href="./views/galeria.html?categoria=Racks%20y%20Bancos">Ver Producto</a>        
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 3: Nuestra Filosofía -->
+        <section class="filosofia">
+            <h2 class="section-title">Nuestra <span>Filosofía</span></h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>🏋️‍♂️ Calidad Extrema</h3>
+                    <p>Fabricados con acero reinforced y acabados de alta durabilidad para soportar entrenamientos intensivos diarios.</p>
+                </div>
+                <div class="card">
+                    <h3>⚡ Rendimiento Máximo</h3>
+                    <p>Diseñados ergonómicamente para garantizar la máxima eficiencia biomecánica en cada levantamiento.</p>
+                </div>
+                <div class="card">
+                    <h3>🛡️ Garantía Total</h3>
+                    <p>Todos nuestros equipos y accesorios cuentan con certificación de resistencia y garantía profesional por años.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 4: Noticias -->
+        <section class="noticias">
+            <h2 class="section-title">Últimas <span>Noticias y Novedades</span></h2>
+            <div id="news-container" class="news-container">
+                <p class="loading-news">Cargando noticias...</p>
+            </div>
+        </section>
+
+        <!-- Sección 5: Llamada a Presupuesto -->
+        <section class="llamada-presupuesto">
+            <h2 class="section-title">¿Listo para equipar tu gimnasio o zona de entrenamiento?</h2>
+            <p>Personaliza tu pedido con nuestros productos, plazos y extras en cuestión de segundos.</p>
+            <a href="./views/presupuesto.html" class="btn">Configurar Presupuesto Ahora</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3><a href="./index.html">Vulkania Heavy</a></h3>
+                <p>Tu centro especializado en equipamiento de alta resistencia, powerlifting y entrenamiento funcional en Tenerife.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook" rel="noopener">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com" target="_blank" aria-label="Instagram" rel="noopener">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com" target="_blank" aria-label="YouTube" rel="noopener">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Enlaces Rápidos</h3>
+                <p><a href="./index.html">Inicio</a></p>
+                <p><a href="./views/galeria.html">Galería de Productos</a></p>
+                <p><a href="./views/presupuesto.html">Calcula tu Presupuesto</a></p>
+                <p><a href="./views/contacto.html">Ubicación y Contacto</a></p>
+            </div>
+            <div class="footer-col">
+                <h3><a href="./views/contacto.html">Contacto</a></h3>
+                <p>Calle Castillo 45, Santa Cruz de Tenerife</p>
+                <p>Tel: +34 922 000 111</p>
+                <p>Email: contacto@vulkaniaheavy.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vulkania Heavy. Todos los derechos reservados. | <a href="./views/politica-privacidad.html">Aviso Legal y Política de Privacidad</a></p>
+        </div>
+    </footer>
+</body>
+</html>

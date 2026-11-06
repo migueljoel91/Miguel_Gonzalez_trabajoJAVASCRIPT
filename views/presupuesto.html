@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="oscuro"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Venta de productos de gimnasio online de alta calidad y accesorios para entrenamiento">
+    <meta name="keywords" content="gimnasio, productos de gimnasio, presupuesto, formulario">
+    <meta name="author" content="Miguel Yoel Gonzalez Martin">
+    <title>Vulkania Heavy - Presupuesto</title>
+    <!-- Favicon y manifest -->
+        <link rel="icon" type="image/png" href="../assets/favicon/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg">
+        <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+        <meta name="apple-mobile-web-app-title" content="MyWebSite">
+        <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <!-- Estilos y scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/presupuesto.css">
+    <script src="../js/index.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="./index.html" class="logo">⚡ VULKANIA <span>HEAVY</span></a>
+            <nav class="nav-links">
+                <ul>
+                    <li><button type="button" id="tema" class="tema" aria-label="Cambiar tema">🌙</button></li>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="./galeria.html">Galería</a></li>
+                    <li><a href="./presupuesto.html" class="active">Tienda y presupuesto</a></li>
+                    <li><a href="./contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="introduccion">
+            <h1 class="section-title">Equipa tu espacio.<br><span>Como decía el maestro Yami Sukehiro: Supera tus límites aquí y ahora.</span></h1>
+            <p class="parrafo-intro">Compra material profesional para tu gimnasio o zona de entrenamiento. Elige un producto y personaliza tu presupuesto al instante.</p>
+        </section>
+
+        <section class="detacados">
+            <h2 class="section-title">Productos <span>Destacados</span></h2>
+            <div class="productos-destacados">
+                <article class="producto-grid">
+                    <img src="../assets/images/producto1.jpg" class="card-img" width="200" height="200" alt="Barra de alto rendimiento de 20kg">
+                    <h3>Barra Olímpica completa</h3>
+                    <p>Barra de 20kg de alto rendimiento y discos incluidos para llevar tus levantamientos al siguiente nivel.</p>
+                    <div class="shop-product-footer">
+                        <p><strong>150 €</strong></p>
+                        <button type="button" class="btn" data-product="150">Añadir al presupuesto</button>
+                    </div>
+                </article>
+
+                <article class="producto-grid">
+                    <img src="../assets/images/producto2.jpg" class="card-img" width="200" height="200" alt="Mancuernas de 15kg de alta calidad">
+                    <h3>Pesas libres</h3>
+                    <p>Mancuernas de 15kg de alta calidad para mejorar tu entrenamiento.</p>
+                    <div class="shop-product-footer">
+                        <p><strong>100 €</strong></p>
+                        <button type="button" class="btn" data-product="100">Añadir al presupuesto</button>
+                    </div>
+                </article>
+
+                <article class="producto-grid">
+                    <img src="../assets/images/producto5.jpg" class="card-img" width="200" height="200" alt="Banco de pesas ajustable de alta calidad">
+                    <h3>Banco de Pesas</h3>
+                    <p>Banco de pesas ajustable de alta calidad para maximizar tu entrenamiento en casa o en el gimnasio.</p>
+                    <div class="shop-product-footer">
+                        <p><strong>200 €</strong></p>
+                        <button type="button" class="btn" data-product="200">Añadir al presupuesto</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="formulario-presupuesto">
+            <h2 class="section-title">Personaliza tu <span>Presupuesto</span></h2>
+            <form id="form" class="form" action="#" method="post">
+                <h3 class="section-title-form">👤 Datos de contacto</h3>
+                <div class="form-grid">
+                    <div class="campo">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" autocomplete="given-name" maxlength="15" placeholder="Solo letras, máx. 15 caracteres" required>
+                    </div>
+                    <div class="campo">
+                        <label for="apellidos">Apellidos:</label>
+                        <input type="text" id="apellidos" name="apellidos" maxlength="40" placeholder="Solo letras, máx. 40 caracteres" required>
+                    </div>
+                    <div class="campo">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="numeric" maxlength="9" placeholder="Solo números sin espacios, máx. 9 dígitos" required>
+                    </div>
+                        <div class="campo">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" autocomplete="email" placeholder="Ejemplo: nnnnn_nn@zzzzz.xxx" required>
+                    </div>
+                </div>
+
+                <h3 class="section-title-form">🛠️ Productos seleccionados</h3>
+
+                <button type="submit" class="btn-submit">Calcular Presupuesto</button>
+                <button type="reset" class="btn-reset">Limpiar Formulario</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3><a href="./index.html">Vulkania Heavy</a></h3>
+                <p>Tu centro especializado en equipamiento de alta resistencia, powerlifting y entrenamiento funcional en Tenerife.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook" rel="noopener">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com" target="_blank" aria-label="Instagram" rel="noopener">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com" target="_blank" aria-label="YouTube" rel="noopener">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Enlaces Rápidos</h3>
+                <p><a href="../index.html">Inicio</a></p>
+                <p><a href="./galeria.html">Galería de Productos</a></p>
+                <p><a href="./presupuesto.html">Calcula tu Presupuesto</a></p>
+                <p><a href="./contacto.html">Ubicación y Contacto</a></p>
+            </div>
+            <div class="footer-col">
+                <h3><a href="./contacto.html">Contacto</a></h3>
+                <p>Calle Castillo 45, Santa Cruz de Tenerife</p>
+                <p>Tel: +34 922 000 111</p>
+                <p>Email: contacto@vulkaniaheavy.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vulkania Heavy. Todos los derechos reservados. | <a href="./politica-privacidad.html">Aviso Legal y Política de Privacidad</a></p>
+        </div>
+    </footer>
+</body>
+</html>

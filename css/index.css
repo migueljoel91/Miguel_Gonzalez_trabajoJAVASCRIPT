@@ -1,0 +1,357 @@
+/* RESETEO DE VALORES POR DEFECTO */  
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;  /* Movimiento fluido al hacer clic en links */
+}
+
+/* VARIABLES CSS */
+/* Fondo oscuro */
+:root {
+    --text-main: white;
+    --text-main-header: white;
+    --text-secondary: #ccc;
+    --background-color: #181818;
+    --background-footer: #101010; 
+    --background-color-tema: white;
+    --border-color: #333;
+    --border-color-tema: #333;
+    --accent-color: #cc2b2b;           
+    --accent-color-hover: #9d1f1f;
+    --cards-color: #1e1e24;   
+    --transition: all 0.3s ease;
+    --background-color-header: rgba(14, 14, 14, 0.95);
+}
+
+/* Fondo claro */
+:root[data-tema="claro"] {
+    --background-color: #ffffff;
+    --background-color-tema: #181818;
+    --cards-color: #f3f4f6;
+    --text-main: #111111;
+    --text-main-header: white;
+    --text-secondary: #555555;
+    --border-color: #d1d5db;
+    --border-color-tema: #172554;
+    --cards-color: #e5e7eb;
+    --background-footer: #e5e7eb;
+    --accent: #1e3a8a;       
+    --accent-hover: #172554; 
+    --background-color-header: rgba(194, 192, 192, 0.75);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/* SECCION 0: HEADER */
+header {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color-header);
+    backdrop-filter: blur(10px);
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding: 1rem 2rem;
+}
+
+.nav-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo,
+.logo a {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-main);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+span {
+    color: var(--accent-color);
+}
+
+.nav-links ul {
+    font-size: 1.3rem;
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li:first-of-type {
+    border-right: 1px solid var(--border-color-tema);
+    padding-right: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-color);
+}
+
+.tema {
+    width: 2.3rem;
+    height: 2.3rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    border: 1px solid var(--border-color);
+    background: var(--background-color-tema);
+    border-radius: 50%;
+    color: var(--text-main);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* SECCION 1: PORTADA */
+.banner {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../assets/images/banner.jpg') no-repeat center center/cover;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.banner-content {
+    max-width: 800px;
+    color: var(--text-main-header);
+}
+
+.banner-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.btn:hover,
+.btn-cards:hover {
+    background-color: var(--accent-color-hover);
+}
+
+
+/* SECCION 2: PRODUCTOS DESTACADOS */
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 0rem 2rem 1rem 2rem;
+    border-radius: 10px;
+}
+
+.card {
+    background-color: var(--cards-color);
+    text-align: center;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transition: var(--transition);
+    border: 1px solid var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.card p {
+    border-top: 1px solid var(--border-color);
+    margin: 0 0.5rem 0 0.5rem;
+    padding-top: 1rem;
+}
+
+.card-img {
+    width: 100%;
+    height: 275px;
+    margin-bottom: 0.5rem;
+}
+
+.btn-cards {
+    display: inline-block;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cards a {
+    color: white;
+    text-decoration: none;
+}
+
+/* SECCION 3: NUESTRA FILOSOFÍA */
+.filosofia .card {
+    padding: 1.7rem;
+}
+
+
+/* SECCION 4: NOTICIAS */
+
+
+
+
+/* SECCION 5: LLAMADA A PRESUPUESTO */
+.llamada-presupuesto {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: var(--cards-color);
+    margin: 2rem 2rem 4rem 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.llamada-presupuesto .btn {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.llamada-presupuesto h2 {
+    font-size: 1.7rem;
+}
+
+
+
+
+/* ESTILOS DEL FOOTER */
+footer {
+    background-color: var(--background-footer);
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 2rem 1.5rem;
+    font-size: 1rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 5rem;
+    margin-bottom: 2rem;
+}
+
+.footer-col h3 {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.footer-content a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+.footer-content a:hover {
+    color: var(--accent-color);
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+.social-icons a:hover {
+    background-color: var(--accent-color);
+    color: var(--text-main);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.footer-bottom a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+.footer-bottom a:hover {
+    color: var(--text-main);
+}
