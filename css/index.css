@@ -192,7 +192,8 @@ span {
 
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
+    justify-content: center;
     gap: 2rem;
     padding: 0rem 2rem 1rem 2rem;
     border-radius: 10px;
@@ -204,6 +205,7 @@ span {
     border: 1px solid var(--border-color);
     border-radius: 10px;
     overflow: hidden;
+    
 }
 
 .card:hover {
@@ -222,6 +224,7 @@ span {
     width: 100%;
     height: 275px;
     margin-bottom: 0.5rem;
+    object-fit: cover;
 }
 
 .btn-cards {
@@ -355,3 +358,256 @@ footer {
 .footer-bottom a:hover {
     color: var(--text-main);
 }
+
+
+
+/* ==========================================================
+   RESPONSIVE (MEDIA QUERIES)
+   Van al FINAL del archivo para poder sobrescribir las reglas
+   de arriba. Enfoque "desktop-first": se usa max-width.
+     - 1200px: tablet horizontal / portátil pequeño
+     - 768px:  tablet vertical
+     - 480px:  móvil
+     - 360px:  móvil pequeño
+   ========================================================== */
+ 
+/* Evita que imágenes y vídeos se salgan de su contenedor */
+img,
+video {
+    max-width: 100%;
+}
+ 
+ 
+/* TABLET HORIZONTAL (hasta 1200px) */
+@media (max-width: 1200px) {
+    /* Header */
+    header {
+        padding: 1rem 1.5rem;
+    }
+ 
+    .nav-container {
+        flex-wrap: wrap;
+        row-gap: 0.75rem;
+        padding: 0 1rem;
+    }
+ 
+    .nav-links ul {
+        font-size: 1.1rem;
+        gap: 1.25rem;
+    }
+ 
+    .nav-links li:first-of-type {
+        padding-right: 1.5rem;
+    }
+ 
+    /* Portada */
+    .banner-content h1 {
+        font-size: 2.5rem;
+    }
+ 
+    /* Tarjetas */
+    .cards-grid {
+        gap: 1.5rem;
+        padding: 0 1.5rem 1rem;
+    }
+ 
+    /* Footer */
+    .footer-content {
+        gap: 3rem;
+    }
+}
+ 
+ 
+/* TABLET VERTICAL (hasta 768px) */
+@media (max-width: 768px) {
+    /* Header: el logo y los enlaces pueden saltar de línea */
+    header {
+        padding: 0.75rem 1rem;
+    }
+ 
+    .nav-container {
+        padding: 0;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+ 
+    .logo,
+    .logo a {
+        font-size: 1.5rem;
+    }
+ 
+    .nav-links ul {
+        font-size: 1rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+ 
+    .nav-links li:first-of-type {
+        padding-right: 1rem;
+    }
+ 
+    /* Portada: altura mínima en vez de fija, para que el texto nunca se corte */
+    .banner {
+        height: auto;
+        min-height: 50vh;
+        padding: 3rem 1.5rem;
+    }
+ 
+    .banner-content h1 {
+        font-size: 2rem;
+    }
+ 
+    .banner-content p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+ 
+    /* Productos y filosofía */
+    .section-title {
+        font-size: 1.7rem;
+    }
+ 
+    .cards-grid {
+        padding: 0 1rem 1rem;
+    }
+ 
+    .card-img {
+        height: 220px;
+        object-fit: cover;
+    }
+ 
+    .filosofia .card {
+        padding: 1.3rem;
+    }
+ 
+    /* Llamada a presupuesto */
+    .llamada-presupuesto {
+        margin: 1.5rem 1rem 3rem 1rem;
+        padding: 1rem;
+    }
+ 
+    .llamada-presupuesto h2 {
+        font-size: 1.5rem;
+    }
+ 
+    /* Footer: 2 columnas */
+    footer {
+        padding: 1.5rem 1rem 1rem;
+    }
+ 
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+ 
+ 
+/* MÓVIL (hasta 480px) */
+@media (max-width: 480px) {
+    /* Header: logo arriba y enlaces debajo, centrados */
+    .nav-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+ 
+    .nav-links ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        font-size: 0.95rem;
+    }
+ 
+    .nav-links li:first-of-type {
+        padding-right: 0.75rem;
+    }
+ 
+    /* Portada */
+    .banner {
+        padding: 2rem 1rem;
+    }
+ 
+    .banner-content h1 {
+        font-size: 1.7rem;
+    }
+ 
+    .banner-content p {
+        font-size: 1rem;
+    }
+ 
+    .btn {
+        padding: 0.65rem 1.2rem;
+    }
+ 
+    /* Tarjetas: 1 columna (con minmax(280px) en pantallas de 320px la tarjeta invadía el margen derecho) */
+    .section-title {
+        font-size: 1.5rem;
+    }
+ 
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding: 0 1rem 1rem;
+    }
+ 
+    .card-img {
+        height: 200px;
+    }
+ 
+    /* Llamada a presupuesto */
+    .llamada-presupuesto {
+        margin: 1rem 0.75rem 2.5rem 0.75rem;
+    }
+ 
+    .llamada-presupuesto h2 {
+        font-size: 1.3rem;
+    }
+ 
+    /* Footer: 1 columna */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+ 
+    .social-icons {
+        gap: 1.25rem;
+    }
+ 
+    .footer-bottom {
+        font-size: 0.8rem;
+    }
+}
+ 
+ 
+/* MÓVIL PEQUEÑO (hasta 360px) */
+@media (max-width: 360px) {
+    .logo,
+    .logo a {
+        font-size: 1.3rem;
+    }
+ 
+    .nav-links ul {
+        font-size: 0.9rem;
+        gap: 0.5rem;
+    }
+ 
+    .nav-links li:first-of-type {
+        padding-right: 0.5rem;
+    }
+ 
+    .banner-content h1 {
+        font-size: 1.5rem;
+    }
+ 
+    .section-title {
+        font-size: 1.35rem;
+    }
+}
+ 
+ 
+/* PANTALLAS TÁCTILES: sin efecto "levantar" al tocar una tarjeta */
+@media (hover: none) {
+    .card:hover {
+        transform: none;
+    }
+}
+ 

@@ -130,7 +130,12 @@ section {
     border-color: var(--accent-color);
 }
 
-
+/* ESTILOS PARA LOS ERRORES DE VALIDACION */
+.error {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
 
 /* ESTILOS DE LOS BOTONES DEL FORMULARIO */
 .btn-submit {
