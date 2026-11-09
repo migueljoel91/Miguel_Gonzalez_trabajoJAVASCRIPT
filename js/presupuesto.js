@@ -116,6 +116,11 @@ function validarPlazo() {
         inputPlazoDias.placeholder = "min. 7 máx. 30";
     }
 
+        // Limpiamos errores previos al empezar a evaluar
+    errorPlazo.textContent = '';
+    inputPlazoDias.classList.remove('error');
+    inputPlazoMeses.classList.remove('error');
+
     // 2. Validar meses máximos (12)
     if (mesesNum > 12) {
         inputPlazoDias.classList.add('error');
