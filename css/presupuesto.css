@@ -135,7 +135,30 @@ section {
 .error {
     color: var(--accent-color);
     font-size: 0.8rem;;
+    margin-top: -0.3rem;
 }
+
+.error:not(:empty)::before {
+    content: "!";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-right: 0.4rem;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+#error-plazo-dias,
+#error-plazo-meses {
+    white-space: wrap;
+}
+
 
 /* ESTILOS PARA CONFIGURACION DEL PEDIDO */
 
@@ -179,13 +202,13 @@ section {
 
 .contenedor-plazos {
     display: grid;
-    grid-template-columns: 150px 170px;
+    grid-template-columns: 160px 170px 1fr;
     gap: 0.8rem;
     margin-bottom: 2rem;
     align-items: center;
 }
 .contenedor-plazos p {
-    grid-column: span 2;
+    grid-column: 1 / -1;   /* toda la fila, sin crear columnas nuevas */
     color: var(--text-secondary);
     font-size: 0.8rem;
 }
@@ -316,4 +339,13 @@ h4 {
 
 .btn-reset:hover {
     background-color: rgb(34, 34, 34);
+}
+
+
+
+@media (max-width: 700px) {
+    .contenedor-plazos {
+        grid-template-columns: 170px;
+        row-gap: 0.5rem;          
+    }
 }

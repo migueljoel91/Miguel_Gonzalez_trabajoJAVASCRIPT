@@ -12,11 +12,16 @@ const inputNombre = document.getElementById('nombre');
 const inputApellidos = document.getElementById('apellidos');
 const inputTelefono = document.getElementById('telefono');
 const inputEmail = document.getElementById('email');
+const inputPlazoDias = document.getElementById('dias');
+const inputPlazoMeses = document.getElementById('meses');
+
 
 const errorNombre = document.getElementById('error-nombre');
 const errorApellidos = document.getElementById('error-apellidos');
 const errorTelefono = document.getElementById('error-telefono');
 const errorEmail = document.getElementById('error-email');
+const errorPlazoDias = document.getElementById('error-plazo-dias');
+const errorPlazoMeses = document.getElementById('error-plazo-meses');
 
 // FUNCIONES DE VALIDACION
 function validarNombre() {
@@ -99,11 +104,51 @@ function validarEmail() {
     return true;
 }
 
+function validarPlazoDias() {
+    const plazo = inputPlazoDias.value.trim();
+
+    if (plazo === '') {
+        inputPlazoDias.classList.add('error');
+        errorPlazoDias.textContent = 'Seleccione un plazo';
+        return false;
+    }
+
+    if (plazo < 7 || plazo > 30) {
+        inputPlazoDias.classList.add('error');
+        errorPlazoDias.textContent = 'El plazo en días debe estar entre 7 y 30';
+        return false;
+    }
+    inputPlazoDias.classList.remove('error');
+    errorPlazoDias.textContent = '';
+    return true;
+}
+
+function validarPlazoMeses() {
+    const plazo = inputPlazoMeses.value.trim();
+
+    if (plazo === '') {
+        inputPlazoMeses.classList.add('error');
+        errorPlazoMeses.textContent = 'Seleccione un plazo';
+        return false;
+    }
+
+    if (plazo < 1 || plazo > 36) {
+        inputPlazoMeses.classList.add('error');
+        errorPlazoMeses.textContent = 'El plazo en meses debe estar entre 1 y 36';
+        return false;
+    }
+    inputPlazoMeses.classList.remove('error');
+    errorPlazoMeses.textContent = '';
+    return true;
+}
+
 function resetFormulario() {
     inputNombre.value = '';
     inputApellidos.value = '';
     inputTelefono.value = '';
     inputEmail.value = '';
+    inputPlazoDias.value = '';
+    inputPlazoMeses.value = '';
     inputNombre.classList.remove('error');
     inputApellidos.classList.remove('error');
     inputTelefono.classList.remove('error');
@@ -112,6 +157,10 @@ function resetFormulario() {
     errorApellidos.textContent = '';
     errorTelefono.textContent = '';
     errorEmail.textContent = '';
+    inputPlazoDias.classList.remove('error');
+    inputPlazoMeses.classList.remove('error');
+    errorPlazoDias.textContent = '';
+    errorPlazoMeses.textContent = '';
 }
 
 const botonReset = document.getElementById('btn-reset');
@@ -123,6 +172,10 @@ inputNombre.addEventListener('input', validarNombre);
 inputApellidos.addEventListener('input', validarApellidos);
 inputTelefono.addEventListener('input', validarTelefono);
 inputEmail.addEventListener('input', validarEmail);
+inputPlazoDias.addEventListener('input', validarPlazoDias);
+inputPlazoMeses.addEventListener('input', validarPlazoMeses);
+
+
 
 formulario.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -132,8 +185,10 @@ formulario.addEventListener('submit', function (event) {
     const apellidosOk = validarApellidos();
     const telefonoOk = validarTelefono();
     const emailOk = validarEmail();
+    const plazoDiasOk = validarPlazoDias();
+    const plazoMesesOk = validarPlazoMeses();
 
-    if (nombreOk && apellidosOk && telefonoOk && emailOk) {
+    if (nombreOk && apellidosOk && telefonoOk && emailOk && plazoDiasOk && plazoMesesOk) {
         alert('Formulario enviado con éxito, muchas gracias');
         formulario.submit();
     } else {
