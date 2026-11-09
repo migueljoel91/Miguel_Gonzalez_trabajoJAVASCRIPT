@@ -80,27 +80,27 @@
 
         <section class="formulario-presupuesto">
             <h2 class="section-title">Personaliza tu <span>Presupuesto</span></h2>
-            <form id="form" class="form" action="#" method="post">
+            <form id="form" class="form" action="#" method="post" novalidate>
                 <h3 class="section-title-form">👤 Datos de contacto</h3>
                 <div class="form-datos">
                     <div class="campo">
                         <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" autocomplete="given-name" maxlength="15" placeholder="Solo letras, máx. 15 caracteres" required>
+                        <input type="text" id="nombre" name="nombre" autocomplete="given-name" maxlength="15" placeholder="Solo letras, máx. 15 caracteres">
                         <span class="error" id="error-nombre"></span>
                     </div>
                     <div class="campo">
                         <label for="apellidos">Apellidos:</label>
-                        <input type="text" id="apellidos" name="apellidos" maxlength="40" placeholder="Solo letras, máx. 40 caracteres" required>
+                        <input type="text" id="apellidos" name="apellidos" maxlength="40" placeholder="Solo letras, máx. 40 caracteres">
                         <span class="error" id="error-apellidos"></span>
                     </div>
                     <div class="campo">
                         <label for="telefono">Teléfono:</label>
-                        <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="numeric" maxlength="9" placeholder="Solo números sin espacios, máx. 9 dígitos" required>
+                        <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="numeric" maxlength="9" placeholder="Solo números sin espacios, máx. 9 dígitos">
                         <span class="error" id="error-telefono"></span>
                     </div>
                         <div class="campo">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" autocomplete="email" placeholder="Ejemplo: nnnnn_nn@zzzzz.xxx" required>
+                        <input type="email" id="email" name="email" autocomplete="email" placeholder="Ejemplo: nnnnn_nn@zzzzz.xxx">
                         <span class="error" id="error-email"></span>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
                 <div id="form-pedido" class="form-pedido"> 
                     <div class="contenedor-productos">
                         <label for="productos">Elige un producto:</label>
-                        <select id="productos" name="productos" required>
+                        <select id="productos" name="productos">
                             <option value="" disabled selected>-- Selecciona un producto --</option>
                             <option value="150">Barra Olímpica de 20kg más discos (150 €)</option>
                             <option value="100">Set de Mancuernas Hexagonales (2.5 - 25kg) (100 €)</option>
@@ -121,44 +121,39 @@
                     <div class="contenedor-plazos">
                         
                         <label for="dias">Plazo en días:</label>
-                        <input type="number" id="dias" name="dias" min="7" max="30" step="1" placeholder="min. 7 máx. 30" required>
+                        <input type="number" id="dias" name="dias" min="7" max="30" step="1" placeholder="min. 7 máx. 30">
 
                         <label for="meses">Plazo en meses:</label>
-                        <input type="number" id="meses" name="meses" min="1" max="12" step="1" placeholder="min. 1 max. 12" required>
+                        <input type="number" id="meses" name="meses" min="1" max="12" step="1" placeholder="min. 1 max. 12">
                         <span class="error" id="error-plazo"></span>
 
-                        <p>(A partir de 3 meses se aplica un descuento del 5% progresivo sobre el total del presupuesto)</p>
+                        <p>(A partir de 3 meses se aplica un descuento del 5% progresivo sobre el precio del producto hasta un máximo del 50%)</p>
                     </div>
 
                     <h4>Elige los extras que desees:</h4>
                     <div class="extras">
                         <label for="protector">Protector de suelo (20 €)
-                            <input type="checkbox" id="protector" name="extras">
+                            <input type="checkbox" id="protector" name="extras" value="20">
                         </label>
                         <label for="soporte">Montaje y soporte especializado (40 €)
-                            <input type="checkbox" id="soporte" name="extras">
+                            <input type="checkbox" id="soporte" name="extras" value="40">
                         </label>
                         <label for="color">Color personalizado (50 €)
-                            <input type="checkbox" id="color" name="extras">
+                            <input type="checkbox" id="color" name="extras" value="50">
                         </label>
                     </div>
 
                     <div class="total-presupuesto">
                         <p>Total presupuesto:</p>
                         <p id="total"><span>0 €</span></p>
-                        <p class="total-mensaje">El descuento por plazo se aplica automáticamente al importe del pedido.</p>
+                        <p class="total-mensaje">El descuento por plazo se aplica automáticamente al importe del producto, no del total del pedido.</p>
                     </div>
                 </div>
-
-
-    
-
-
 
                 <div class="form-envio">
                     <h3 class="section-title-form">🔒 Condiciones de envío</h3>
                     <div class="campo-politica">
-                        <input type="checkbox" id="envio" name="envio" required>
+                        <input type="checkbox" id="envio" name="envio">
                             <label for="envio">He leído y acepto la política de privacidad y condiciones del servicio. |</label>
                             <a href="./politica-privacidad.html" class="politica" target="_blank">Política de Privacidad</a>
                         <span class="error" id="error-envio"></span>
