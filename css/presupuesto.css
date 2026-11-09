@@ -100,7 +100,7 @@ section {
     margin-bottom: 1rem;
 }
 
-.form-grid {
+.form-datos {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem 1.5rem;
@@ -112,11 +112,12 @@ section {
 .campo {
     display: flex;
     flex-direction: column;
-    gap: 0.7rem;
+    gap: 0.5rem;
 }
 
 .campo input {
     color: var(--text-main);
+    margin: 0.2rem 0;
     font-size: 1.1rem;
     width: 100%;
     padding: 0.7rem;
@@ -133,17 +134,166 @@ section {
 /* ESTILOS PARA LOS ERRORES DE VALIDACION */
 .error {
     color: var(--accent-color);
+    font-size: 0.8rem;;
+}
+
+/* ESTILOS PARA CONFIGURACION DEL PEDIDO */
+
+.form-pedido {
+    margin: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 3rem;
+}
+
+.contenedor-productos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.contenedor-productos p {
+    font-size: 0.8rem;
+    display: inline-block;
+    color: var(--text-secondary);
+}
+
+.contenedor-productos input,
+.contenedor-productos select,
+.contenedor-plazos input {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.5rem;
+    color: var(--text-main);
+    padding: 0.7rem;
+    font-size: 1.1rem;
+}
+
+
+.contenedor-productos input:focus,
+.contenedor-productos select:focus,
+.contenedor-plazos input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.contenedor-plazos {
+    display: grid;
+    grid-template-columns: 150px 170px;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+.contenedor-plazos p {
+    grid-column: span 2;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+/* Estilos para los extras del pedido */
+h4 {
+    margin-bottom: 0.8rem;
+    margin-top: 1rem;
+}
+
+.extras {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.3rem;
+}
+
+.extras label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+}
+
+.extras input[type="checkbox"] { 
+    transform: scale(1.3); /* Aumenta su tamaño de forma limpia */
+    cursor: pointer;
+    accent-color: var(--accent-color);
+    margin-top: 3.7px; /* Empuja ligeramente el checkbox hacia abajo para clavarlo con el texto */
+}
+
+
+
+
+/* Estilos para el total del presupuesto */
+.total-presupuesto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    font-size: 1.4rem;
+    background-color: var(--background-color);
+    border: 4px dashed var(--accent-color);
+    border-radius: 15px;
+}
+
+.total-presupuesto span {
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.total-mensaje {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+
+
+
+/* ESTILOS PARA CONDICIONES DE ENVIO */
+
+.campo-politica {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.campo-politica input[type="checkbox"] {
+    margin-top: 3px; /* Empuja ligeramente el checkbox hacia abajo para clavarlo con el texto */
+    transform: scale(1.3); /* Aumenta su tamaño de forma limpia */
+    cursor: pointer;
+    accent-color: var(--accent-color); /* Le da el color corporativo automáticamente */
+}
+
+.campo-politica label {
+    cursor: pointer;
+}
+
+.politica {
     font-size: 0.9rem;
-    margin-top: 0.3rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.politica:hover {
+    color: var(--accent-color-hover);
+    text-decoration: underline;
 }
 
 /* ESTILOS DE LOS BOTONES DEL FORMULARIO */
+
+.botones {
+    margin-top: 1.5rem;
+}
+
 .btn-submit {
     background-color: var(--accent-color);
     color: white;
     border: none;
     padding: 0.5rem 1rem;
-    margin-left: 1rem;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
