@@ -20,8 +20,8 @@ const errorNombre = document.getElementById('error-nombre');
 const errorApellidos = document.getElementById('error-apellidos');
 const errorTelefono = document.getElementById('error-telefono');
 const errorEmail = document.getElementById('error-email');
-const errorPlazoDias = document.getElementById('error-plazo-dias');
-const errorPlazoMeses = document.getElementById('error-plazo-meses');
+const errorPlazo = document.getElementById('error-plazo');
+
 
 // FUNCIONES DE VALIDACION
 function validarNombre() {
@@ -104,44 +104,100 @@ function validarEmail() {
     return true;
 }
 
-function validarPlazoDias() {
-    const plazo = inputPlazoDias.value.trim();
+// VALIDACIÓN DEL PLAZO EN DÍAS Y MESES
+function validarPlazo() {
+    const dias = inputPlazoDias.value.trim();
+    const diasNum = Number(dias);
+    const mesesNum = Number(inputPlazoMeses.value.trim());
 
-    if (plazo === '') {
+    // 1. Restaurar estado inicial si los meses son menores a 4 o está vacío
+    if (mesesNum < 4 || isNaN(mesesNum) || inputPlazoMeses.value.trim() === '') {
+        inputPlazoDias.disabled = false;
+        inputPlazoDias.placeholder = "min. 7 máx. 30";
+    }
+
+    // 2. Validar meses máximos (12)
+    if (mesesNum > 12) {
         inputPlazoDias.classList.add('error');
-        errorPlazoDias.textContent = 'Seleccione un plazo';
+        errorPlazo.textContent = 'El plazo máximo en meses es de 12';
         return false;
     }
 
-    if (plazo < 7 || plazo > 30) {
+    // Si los meses son igual o mayor a 4, desactivamos los días
+    if (mesesNum >= 4) {
+        inputPlazoDias.placeholder = "";
+        inputPlazoDias.disabled = true;
+        inputPlazoDias.value = "";
+        inputPlazoDias.classList.remove('error');
+        errorPlazo.textContent = '';
+        return true;
+    }
+
+    // Si hay de 1 a 3 meses, permitimos ignorar los días y borramos cualquier error previo
+    if (mesesNum >= 1 && mesesNum <= 3) {
+        inputPlazoDias.classList.remove('error');
+        errorPlazo.textContent = '';
+        return true;
+    }
+
+    // 3. VALIDAR DÍAS (solo si no se usan meses >= 4)
+    if (dias === '' || diasNum < 7) {
         inputPlazoDias.classList.add('error');
-        errorPlazoDias.textContent = 'El plazo en días debe estar entre 7 y 30';
+        errorPlazo.textContent = 'El plazo mínimo es de 7 días';
         return false;
     }
+
+    if (diasNum > 30) {
+        inputPlazoDias.classList.add('error');
+        errorPlazo.textContent = 'El plazo máximo en días es de 30';
+        return false;
+    }
+
+    // Limpiar errores si todo está bien
     inputPlazoDias.classList.remove('error');
-    errorPlazoDias.textContent = '';
+    errorPlazo.textContent = '';
     return true;
 }
 
-function validarPlazoMeses() {
-    const plazo = inputPlazoMeses.value.trim();
+// Convertir plazo de días (30) a meses
+function convertirDiasAMeses() {
+    let diasValor = Number(inputPlazoDias.value)
+    let mesesValor = Number(inputPlazoMeses.value)
 
-    if (plazo === '') {
-        inputPlazoMeses.classList.add('error');
-        errorPlazoMeses.textContent = 'Seleccione un plazo';
-        return false;
+    if (diasValor == 30) {
+        mesesValor += 1;
+        diasValor = "";
+        inputPlazoDias.value = diasValor;
+        inputPlazoMeses.value = mesesValor;
+
+        // Disparar la validación para actualizar estados si pasa de 3 a 4 meses
+        validarPlazo();
     }
 
-    if (plazo < 1 || plazo > 36) {
-        inputPlazoMeses.classList.add('error');
-        errorPlazoMeses.textContent = 'El plazo en meses debe estar entre 1 y 36';
-        return false;
+    if (inputPlazoMeses.value.trim() === "") {
+        inputPlazoDias.placeholder = "min. 7 máx. 30";
     }
-    inputPlazoMeses.classList.remove('error');
-    errorPlazoMeses.textContent = '';
-    return true;
 }
 
+inputPlazoDias.addEventListener('input', convertirDiasAMeses);
+inputPlazoMeses.addEventListener('input', validarPlazo);
+
+// Evitar decimales en el input de días
+inputPlazoDias.addEventListener('input', (e) => {
+    if (e.target.value.includes('.') || e.target.value.includes(',')) {
+        e.target.value = parseInt(e.target.value) || '';
+    }
+});
+
+// Evitar decimales en el input de meses
+inputPlazoMeses.addEventListener('input', (e) => {
+    if (e.target.value.includes('.') || e.target.value.includes(',')) {
+        e.target.value = parseInt(e.target.value) || '';
+    }
+});
+
+
+// RESET DEL FORMULARIO
 function resetFormulario() {
     inputNombre.value = '';
     inputApellidos.value = '';
@@ -159,8 +215,7 @@ function resetFormulario() {
     errorEmail.textContent = '';
     inputPlazoDias.classList.remove('error');
     inputPlazoMeses.classList.remove('error');
-    errorPlazoDias.textContent = '';
-    errorPlazoMeses.textContent = '';
+    errorPlazo.textContent = '';
 }
 
 const botonReset = document.getElementById('btn-reset');
@@ -172,8 +227,8 @@ inputNombre.addEventListener('input', validarNombre);
 inputApellidos.addEventListener('input', validarApellidos);
 inputTelefono.addEventListener('input', validarTelefono);
 inputEmail.addEventListener('input', validarEmail);
-inputPlazoDias.addEventListener('input', validarPlazoDias);
-inputPlazoMeses.addEventListener('input', validarPlazoMeses);
+inputPlazoDias.addEventListener('input', validarPlazo);
+inputPlazoMeses.addEventListener('input', validarPlazo);
 
 
 
@@ -195,3 +250,37 @@ formulario.addEventListener('submit', function (event) {
         alert('Formulario inválido, revise los campos obligatorios');
     }
 });
+
+
+/* CALCULO DEL PRESUPUESTO */
+
+const total = document.getElementById('total').querySelector('span');
+
+const productos = (document.getElementById('productos'));
+
+function calcularPresupuesto() {
+    const producto = Number(document.getElementById('productos').value);
+    const plazoMeses = Number(inputPlazoMeses.value);
+    let descuento = 0  // En porcentaje
+
+    // Aplicar descuento por plazo si es mayor o igual a 3 meses
+    for (let i=3; i <= plazoMeses; i++) {
+        descuento += 5; // 5% de descuento inicial a partir del 3 mes y sumando 5% cada mes del precio inicial
+        if (descuento === 33){
+            break;
+        }
+    }
+
+    const totalPresupuesto = producto - producto * (descuento / 100);
+    total.textContent = `${totalPresupuesto.toFixed(2)} €`;
+};
+
+productos.addEventListener('change', calcularPresupuesto);
+inputPlazoMeses.addEventListener('input', calcularPresupuesto);
+inputPlazoDias.addEventListener('input', calcularPresupuesto);
+
+
+
+
+
+
