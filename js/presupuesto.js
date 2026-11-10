@@ -195,6 +195,7 @@ function calcularPresupuesto() {
 // RESET DEL FORMULARIO
 function resetFormulario() {
     formulario.reset();
+    resaltarTarjeta();
     document.querySelectorAll('span.error').forEach(span => span.textContent = '');
     inputPlazoDias.disabled = false;
     inputPlazoDias.placeholder = 'min. 7 máx. 30';
@@ -263,4 +264,44 @@ formulario.addEventListener('submit', function (event) {
     } else {
         alert('Formulario inválido, revise los campos obligatorios');
     }
+});
+
+
+// REALZAR LAS TARJETAS CUANDO SE SELECCIONA UN PRODUCTO DE LA LISTA O SE HACE CLIC EN UNA TARJETA
+const tarjetas = document.querySelectorAll('.producto-grid');
+const botonesTarjetas = document.querySelectorAll('[data-precio]');
+
+// Marca la tarjeta correspondiente al precio del producto seleccionado
+function resaltarTarjeta() {
+    tarjetas.forEach(tarjeta => {
+        const boton = tarjeta.querySelector('.btn');
+        if (boton.dataset.precio === productos.value) {
+            tarjeta.classList.add('resaltada');
+        } else {
+            tarjeta.classList.remove('resaltada');
+        }
+    });
+}
+
+// Escucha el cambio en la lista de productos y resalta la tarjeta correspondiente 
+productos.addEventListener('change', resaltarTarjeta);
+
+
+// Escucha el clic en los botones de las tarjetas y actualiza la selección del producto
+botonesTarjetas.forEach(boton => {
+    boton.addEventListener('click', () => {
+        productos.value = boton.dataset.precio;
+        resaltarTarjeta();
+        calcularPresupuesto();
+        validarProducto();
+    });
+});
+
+
+// Desplazar la vista hasta el total del presupuesto al hacer clic en un botón de tarjeta
+const cajaPresupuesto = document.getElementById('total-presupuesto');
+botonesTarjetas.forEach(boton => {
+    boton.addEventListener('click', function() {
+        cajaPresupuesto.scrollIntoView({ behavior: 'smooth' });
+    });
 });

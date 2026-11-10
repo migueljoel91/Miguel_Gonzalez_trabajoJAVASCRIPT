@@ -33,7 +33,8 @@ section {
     background-color: var(--cards-color);
 }
 
-.producto-grid:hover {
+.producto-grid:hover,
+.producto-grid.resaltada {
     transform: translateY(-5px);
     transition: var(--transition);
     border: 1px solid var(--accent-color);
