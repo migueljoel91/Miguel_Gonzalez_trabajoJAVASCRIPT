@@ -247,9 +247,6 @@ h4 {
     margin-top: 3.7px; /* Empuja ligeramente el checkbox hacia abajo para clavarlo con el texto */
 }
 
-
-
-
 /* Estilos para el total del presupuesto */
 .total-presupuesto {
     display: flex;
@@ -301,12 +298,11 @@ h4 {
     font-size: 0.9rem;
     color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .politica:hover {
-    color: var(--accent-color-hover);
-    text-decoration: underline;
+    color: var(--accent-color);
 }
 
 /* ESTILOS DE LOS BOTONES DEL FORMULARIO */

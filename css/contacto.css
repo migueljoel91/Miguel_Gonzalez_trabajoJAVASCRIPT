@@ -1,0 +1,52 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding: 3rem;
+}
+
+.info-item {
+    margin: 1.5rem 1.5rem 1.5rem 1rem;
+}
+
+.info-item span {
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+    vertical-align: center;
+    text-align: center;
+}
+
+.info-item p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.info-item a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info-item a:hover {
+    text-decoration: underline;
+    color: var(--accent-color);
+}
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
