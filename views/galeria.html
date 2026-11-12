@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="es" data-tema="oscuro"> 
+<html lang="es" data-tema="oscuro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Venta de productos de gimnasio online de alta calidad y accesorios para entrenamiento">
+    <meta name="description" content="Galería de productos de gimnasio de Vulkania Heavy: barras, discos, mancuernas, kettlebells, racks y bancos">
     <meta name="keywords" content="gimnasio, productos de gimnasio, accesorios de entrenamiento, venta online">
     <meta name="author" content="Miguel Yoel Gonzalez Martin">
     <title>Vulkania Heavy - Galería</title>
+
     <!-- Favicon y manifest -->
-        <link rel="icon" type="image/png" href="../assets/favicon/favicon-96x96.png" sizes="96x96">
-        <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg">
-        <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
-        <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
-        <meta name="apple-mobile-web-app-title" content="MyWebSite">
-        <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <link rel="icon" type="image/png" href="../assets/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg">
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="Vulkania Heavy">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+
     <!-- Estilos y scripts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/index.css">
@@ -24,7 +26,7 @@
 <body>
     <header>
         <div class="nav-container">
-            <a href="./index.html" class="logo">⚡ VULKANIA <span>HEAVY</span></a>
+            <a href="../index.html" class="logo">⚡ VULKANIA <span>HEAVY</span></a>
             <nav class="nav-links">
                 <ul>
                     <li><button type="button" id="tema" class="tema" aria-label="Cambiar tema">🌙</button></li>
@@ -47,31 +49,38 @@
             <button type="button" class="filtro" value="Racks y Bancos">Racks y Bancos</button>
         </div>
 
-        <div class="galeria">
-            <div class="producto" data-categoria="Barras y discos">
-                <img class="producto-img" src="../assets/images/producto1.jpg" alt="Barra Olímpica Profesional de 20kg" width="400" height="400">
-                <p class="producto-parrafo">Barra Olímpica Profesional de 20kg</p>
+        <div class="carousel-container">
+            <button type="button" class="carousel-btn prev" id="prevBtn" aria-label="Anterior"><span>👈</span></button>
+
+            <div class="carousel-track">
+                <div class="carousel-slide" data-categoria="Barras y discos">
+                    <img class="producto-img" src="../assets/images/producto1.jpg" alt="Barra Olímpica Profesional de 20kg" width="400" height="400">
+                    <p class="producto-parrafo">Barra Olímpica Profesional de 20kg</p>
+                </div>
+                <div class="carousel-slide" data-categoria="Mancuernas y Kettlebells">
+                    <img class="producto-img" src="../assets/images/producto2.jpg" alt="Set de Mancuernas (2.5kg - 50kg)" width="400" height="400">
+                    <p class="producto-parrafo">Set de Mancuernas (2.5kg - 50kg)</p>
+                </div>
+                <div class="carousel-slide" data-categoria="Racks y Bancos">
+                    <img class="producto-img" src="../assets/images/producto3.jpg" alt="Rack de Potencia Profesional" width="400" height="400">
+                    <p class="producto-parrafo">Rack de Potencia Profesional</p>
+                </div>
+                <div class="carousel-slide" data-categoria="Barras y discos">
+                    <img class="producto-img" src="../assets/images/producto4.jpg" alt="Discos Bumper de Caucho Vírgenes" width="400" height="400">
+                    <p class="producto-parrafo">Discos Bumper de Caucho Vírgenes</p>
+                </div>
+                <div class="carousel-slide" data-categoria="Racks y Bancos">
+                    <img class="producto-img" src="../assets/images/producto5.jpg" alt="Banco de Entrenamiento Ajustable" width="400" height="400">
+                    <p class="producto-parrafo">Banco de Entrenamiento Ajustable</p>
+                </div>
+                <div class="carousel-slide" data-categoria="Mancuernas y Kettlebells">
+                    <img class="producto-img" src="../assets/images/producto6.jpg" alt="Kettlebells de Acero Competición" width="400" height="400">
+                    <p class="producto-parrafo">Kettlebells de Acero Competición</p>
+                </div>
             </div>
-            <div class="producto" data-categoria="Mancuernas y Kettlebells">
-                <img class="producto-img" src="../assets/images/producto2.jpg" alt="Set de Mancuernas (2.5kg - 50kg)" width="400" height="400">
-                <p class="producto-parrafo">Set de Mancuernas (2.5kg - 50kg)</p>
-            </div>
-            <div class="producto" data-categoria="Racks y Bancos">
-                <img class="producto-img" src="../assets/images/producto3.jpg" alt="Rack de Potencia Profesional" width="400" height="400">
-                <p class="producto-parrafo">Rack de Potencia Profesional</p>
-            </div>
-            <div class="producto" data-categoria="Barras y discos">
-                <img class="producto-img" src="../assets/images/producto4.jpg" alt="Discos Bumper de Caucho Vírgenes" width="400" height="400">
-                <p class="producto-parrafo">Discos Bumper de Caucho Vírgenes</p>
-            </div>
-            <div class="producto" data-categoria="Racks y Bancos">
-                <img class="producto-img" src="../assets/images/producto5.jpg" alt="Banco de Entrenamiento Ajustable" width="400" height="400">
-                <p class="producto-parrafo">Banco de Entrenamiento Ajustable</p>
-            </div>
-            <div class="producto" data-categoria="Mancuernas y Kettlebells">
-                <img class="producto-img" src="../assets/images/producto6.jpg" alt="Kettlebells de Acero Competición" width="400" height="400">
-                <p class="producto-parrafo">Kettlebells de Acero Competición</p>
-            </div>
+
+            <button type="button" class="carousel-btn next" id="nextBtn" aria-label="Siguiente"><span>👉</span></button>
+            <div class="carousel-dots" id="carouselDots"></div>
         </div>
     </main>
 
@@ -84,11 +93,9 @@
                     <a href="https://www.facebook.com" target="_blank" aria-label="Facebook" rel="noopener">
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
-
                     <a href="https://www.instagram.com" target="_blank" aria-label="Instagram" rel="noopener">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
-
                     <a href="https://www.youtube.com" target="_blank" aria-label="YouTube" rel="noopener">
                         <i class="fa-brands fa-youtube"></i>
                     </a>
@@ -113,9 +120,9 @@
         </div>
     </footer>
 
-    <div id="lightbox" class="lightbox">
-        <button type="button" id="boton-lightbox" class="boton-lightbox" aria-label="Cerrar imagen">✖</button>
-        <img id="lightbox-img" src="" alt="">
+    <div id="lightbox" class="lightbox" role="dialog" aria-label="Imagen ampliada">
+        <button type="button" class="boton-lightbox" aria-label="Cerrar imagen">✖</button>
+        <img id="lightbox-img" alt="">
     </div>
 </body>
 </html>
