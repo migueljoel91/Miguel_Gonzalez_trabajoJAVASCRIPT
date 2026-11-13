@@ -105,9 +105,7 @@ h2 {
 .custom-tooltip.leaflet-tooltip-top::before    { border-top-color: var(--cards-color);  }
 .custom-tooltip.leaflet-tooltip-bottom::before { border-bottom-color: var(--cards-color); }
 
-
 /* SUSTITUCION DE LAS CLASES DEL PLUGIN PARA VER BIEN LA RUTA YA QUE EL PLUGIN ORIGINAL TRAE COLORES FIJOS */
-
 .leaflet-routing-container,
 .leaflet-routing-alt {
     background-color: var(--cards-color);
