@@ -28,23 +28,43 @@ L.marker([LAT_VULKANIA, LNG_VULKANIA], { icon: iconoVulkania })
     .addTo(map)
     .openPopup();
 
+
 // Configuración de la ruta desde la ubicación actual hasta Vulkania Heavy
 function calcularUbicacion() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-            const lat = position.coords.latitude;
-            const lng = position.coords.longitude;
-            L.Routing.control({
-                waypoints: [
-                    L.latLng(lat, lng),
-                    L.latLng(LAT_VULKANIA, LNG_VULKANIA)
-                ],
-                routeWhileDragging: true
-            }).addTo(map);
-        });
+    const options = {
+        enableHighAccuracy: true,  // Ubicación máx exacta posible
+        timeout: 5000,             // 5 segundos para obtener la ubicación 
+        maximumAge: 0              // No usar caché de ubicación, sino que las calcule
+    };
+
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            success,
+            error,
+            options
+        );
+    } else {
+        alert("Intentando obtener tu ubicación actual...");
+    }
+
+    function success(position) {
+        const latCliente = position.coords.latitude;
+        const longCliente = position.coords.longitude;
+        L.Routing.control({
+            waypoints: [
+                L.latLng(latCliente, longCliente),
+                L.latLng(LAT_VULKANIA, LNG_VULKANIA)
+            ],
+            language: 'es',
+            routeWhileDragging: true
+        }).addTo(map);
+    }
+    
+    function error(err) {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+        alert("No se pudo obtener tu ubicación actual.");
     }
 }
-
 map.on('click', () => {
-    calcularUbicacion();
+        calcularUbicacion();
 });
