@@ -105,6 +105,37 @@ h2 {
 .custom-tooltip.leaflet-tooltip-top::before    { border-top-color: var(--cards-color);  }
 .custom-tooltip.leaflet-tooltip-bottom::before { border-bottom-color: var(--cards-color); }
 
+
+/* SUSTITUCION DE LAS CLASES DEL PLUGIN PARA VER BIEN LA RUTA YA QUE EL PLUGIN ORIGINAL TRAE COLORES FIJOS */
+
+.leaflet-routing-container,
+.leaflet-routing-alt {
+    background-color: var(--cards-color);
+    color: var(--text-main);
+}
+
+.leaflet-routing-container {
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+}
+
+.leaflet-routing-alt {
+    border-bottom-color: var(--border-color);
+}
+
+.leaflet-routing-alt tr:hover {
+    background-color: var(--border-color);
+}
+
+.leaflet-routing-alt::-webkit-scrollbar-track {
+    background-color: var(--cards-color);
+}
+
+.leaflet-routing-alt::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+}
+
+
 /* ESTILOS RESPONSIVOS */
 @media (max-width: 768px) {
     .contact-grid {
