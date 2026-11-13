@@ -76,7 +76,7 @@ function calcularUbicacion() {
             addWaypoints: false,   // evita que el usuario añada paradas al hacer clic en la línea
             createMarker: function(i, wp) {
                 if (i === 0) {
-                    return L.marker(wp.latLng, { icon: iconoCliente }).bindPopup("Estás aquí y esta es la ruta hacia mi pinga pedazo de homosexual curioso");
+                    return L.marker(wp.latLng, { icon: iconoCliente }).bindPopup("Eres un homosexual curioso");
                 } else {
                     return null;
                 }
