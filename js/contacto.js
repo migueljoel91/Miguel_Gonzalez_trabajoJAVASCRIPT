@@ -83,7 +83,11 @@ function calcularUbicacion() {
             addWaypoints: false,   // evita que el usuario añada paradas al hacer clic en la línea
             createMarker: function(i, wp) {
                 if (i === 0) {
-                    return L.marker(wp.latLng, { icon: iconoCliente }).bindPopup("Eres un homosexual curioso");
+                    const marcadorCliente = L.marker(wp.latLng, { icon: iconoCliente }).bindPopup("Eres un homosexual curioso");
+                    
+                    marcadorCliente.on('add', () => marcadorCliente.openPopup());
+
+                    return marcadorCliente;
                 } else {
                     return null;
                 }
@@ -97,4 +101,4 @@ function calcularUbicacion() {
     }
 }
 
-map.on('click', calcularUbicacion)
+map.on('click', calcularUbicacion);
