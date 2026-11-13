@@ -24,7 +24,9 @@ const iconoCliente = L.icon({
 });
 
 
-const map = L.map('map').setView([LAT_VULKANIA, LNG_VULKANIA], 14);
+const map = L.map('map', {
+    fullscreenControl: true
+}).setView([LAT_VULKANIA, LNG_VULKANIA], 14);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
