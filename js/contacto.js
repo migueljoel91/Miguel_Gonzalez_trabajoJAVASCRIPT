@@ -25,7 +25,12 @@ const iconoCliente = L.icon({
 
 
 const map = L.map('map', {
-    fullscreenControl: true
+    fullscreenControl: true,
+    fullscreenControlOptions: {
+        position: 'topleft',
+        title: 'Ver en pantalla completa',
+        titleCancel: 'Salir de pantalla completa'
+    }
 }).setView([LAT_VULKANIA, LNG_VULKANIA], 14);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
