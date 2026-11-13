@@ -1,5 +1,8 @@
+// CONFIGURACION DEL MAPA BASE
 const LAT_VULKANIA = 28.46718;
 const LNG_VULKANIA = -16.25243;
+let controlRuta = null;
+
 const iconoVulkania = L.icon({
     iconUrl: "../assets/favicon/favicon-96x96.png",
     iconSize: [40, 40],
@@ -21,7 +24,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 L.marker([LAT_VULKANIA, LNG_VULKANIA], { icon: iconoVulkania })
-    .bindTooltip("Clica para saber la ubicación", { className: "custom-tooltip" })
+    .bindTooltip("Clica en el mapa para ver la ruta", { className: "custom-tooltip" })
     .bindPopup("<b><span>Vulkania Heavy</span></b><br> Calle Castillo 45, S/C de Tenerife", {
         className: "custom-popup"
     })
@@ -29,12 +32,13 @@ L.marker([LAT_VULKANIA, LNG_VULKANIA], { icon: iconoVulkania })
     .openPopup();
 
 
-// Configuración de la ruta desde la ubicación actual hasta Vulkania Heavy
+// CONFIGURACION DE LA RUTA DESDE LA UBICACION ACTUAL HASTA LA EMPRESA
 function calcularUbicacion() {
+    // Calcula la ubicación del cliente
     const options = {
         enableHighAccuracy: true,  // Ubicación máx exacta posible
-        timeout: 5000,             // 5 segundos para obtener la ubicación 
-        maximumAge: 0              // No usar caché de ubicación, sino que las calcule
+        timeout: 10000,             // 10 segundos para obtener la ubicación 
+        maximumAge: 0              // No usa el caché de ubicación, sino que las calcula en tiempo real
     };
 
     if(navigator.geolocation) {
@@ -44,27 +48,42 @@ function calcularUbicacion() {
             options
         );
     } else {
-        alert("Intentando obtener tu ubicación actual...");
+        alert("Tu navegador no permite obtener la ubicación.");
     }
 
+    // Función para calcular la ruta
     function success(position) {
-        const latCliente = position.coords.latitude;
-        const longCliente = position.coords.longitude;
-        L.Routing.control({
-            waypoints: [
-                L.latLng(latCliente, longCliente),
-                L.latLng(LAT_VULKANIA, LNG_VULKANIA)
-            ],
+        const origen = L.latLng(position.coords.latitude, position.coords.longitude);
+        const destino = L.latLng(LAT_VULKANIA, LNG_VULKANIA);
+
+        if (controlRuta) {
+            controlRuta.setWaypoints([origen, destino]);  // Ya existe, solo actualiza
+            return;
+        }
+        
+        // Definir icono del inicio ruta
+        const IconoCliente = L.icon({
+            iconUrl: "../assets/images/pene.png",
+            iconSize: [40, 40],
+            iconAnchor: [20, 40],
+        });
+
+        controlRuta = L.Routing.control({
+            waypoints: [origen, destino],
             language: 'es',
-            routeWhileDragging: true
+            addWaypoints: false,   // evita que el usuario añada paradas al hacer clic en la línea
+            createMarker: function(i, wp) {
+                return i === 0
+                    ? L.marker(wp.latLng, { icon: IconoCliente }).bindPopup("Estás aquí")
+                    : null;           // null = sin marcador en destino para no tapar el logo
+            }
         }).addTo(map);
     }
-    
+    // Si no se puede obtener la ubicación, se ejecuta la función error
     function error(err) {
         console.warn(`ERROR(${err.code}): ${err.message}`);
         alert("No se pudo obtener tu ubicación actual.");
     }
 }
-map.on('click', () => {
-        calcularUbicacion();
-});
+
+map.on('click', calcularUbicacion)
