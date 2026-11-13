@@ -16,6 +16,14 @@ const iconoVulkania = L.icon({
     tooltipAnchor: [20, -20],
 });
 
+const iconoCliente = L.icon({
+    iconUrl: "../assets/images/pene.png",
+    iconSize: [40, 40],
+    iconAnchor: [20, 40],
+    popupAnchor: [2, -40],
+});
+
+
 const map = L.map('map').setView([LAT_VULKANIA, LNG_VULKANIA], 14);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -57,25 +65,21 @@ function calcularUbicacion() {
         const destino = L.latLng(LAT_VULKANIA, LNG_VULKANIA);
 
         if (controlRuta) {
-            controlRuta.setWaypoints([origen, destino]);  // Ya existe, solo actualiza
+            controlRuta.setWaypoints([origen, destino]);  // Si la ruta ya existe, solo actualiza los puntos y sale de la función
             return;
         }
         
-        // Definir icono del inicio ruta
-        const IconoCliente = L.icon({
-            iconUrl: "../assets/images/pene.png",
-            iconSize: [40, 40],
-            iconAnchor: [20, 40],
-        });
-
+        // En caso de que no exista la ruta, crea el control de ruta
         controlRuta = L.Routing.control({
             waypoints: [origen, destino],
             language: 'es',
             addWaypoints: false,   // evita que el usuario añada paradas al hacer clic en la línea
             createMarker: function(i, wp) {
-                return i === 0
-                    ? L.marker(wp.latLng, { icon: IconoCliente }).bindPopup("Estás aquí")
-                    : null;           // null = sin marcador en destino para no tapar el logo
+                if (i === 0) {
+                    return L.marker(wp.latLng, { icon: iconoCliente }).bindPopup("Estás aquí y esta es la ruta hacia mi pinga pedazo de homosexual curioso");
+                } else {
+                    return null;
+                }
             }
         }).addTo(map);
     }
