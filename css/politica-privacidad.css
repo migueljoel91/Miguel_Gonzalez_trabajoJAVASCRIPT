@@ -26,3 +26,8 @@
 .actualizacion {
     font-style: italic;
 }
+
+
+@media (max-width: 768px) {
+    .legal-content { margin: 2rem 1rem; } 
+}

@@ -1,0 +1,44 @@
+{
+  "noticias": [
+    {
+      "id": 1,
+      "titulo": "Nuevo rack Vulkania Titan X: hasta 500 kg de carga",
+      "fecha": "2026-11-10",
+      "categoria": "Lanzamientos",
+      "resumen": "Presentamos nuestro rack más resistente, fabricado en acero de 3 mm y pensado para gimnasios profesionales.",
+      "contenido": "El nuevo Titan X incorpora barras de seguridad regulables, soporte para discos y anclajes para dominadas. Ya disponible en la tienda con montaje incluido en Gran Canaria y Tenerife.",
+      "imagen": "./assets/images/noticias/rack500.jpg",
+      "autor": "Equipo Vulkania"
+    },
+    {
+      "id": 2,
+      "titulo": "Envío gratis a todas las islas durante el Black Friday",
+      "fecha": "2026-11-05",
+      "categoria": "Ofertas",
+      "resumen": "Del 24 al 30 de noviembre, todos los pedidos a Canarias llegan sin gastos de envío.",
+      "contenido": "Aprovecha la semana del Black Friday para equipar tu gimnasio en casa. La promoción incluye las siete islas y se aplica automáticamente al realizar tu presupuesto.",
+      "imagen": "./assets/images/noticias/black-friday.jpg",
+      "autor": "Departamento comercial"
+    },
+    {
+      "id": 3,
+      "titulo": "Abrimos showroom en Santa Cruz de Tenerife",
+      "fecha": "2026-10-28",
+      "categoria": "Empresa",
+      "resumen": "Ven a probar nuestros bancos, mancuernas y racks antes de comprarlos.",
+      "contenido": "Nuestro nuevo espacio cuenta con más de 300 m² de exposición y asesores que te ayudarán a diseñar tu zona de entrenamiento. Abierto de lunes a sábado.",
+      "imagen": "./assets/images/noticias/showroom.jpg",
+      "autor": "Equipo Vulkania"
+    },
+    {
+      "id": 4,
+      "titulo": "5 consejos para montar tu gimnasio en casa",
+      "fecha": "2026-10-15",
+      "categoria": "Consejos",
+      "resumen": "Espacio, suelo, iluminación, distribución y qué material comprar primero.",
+      "contenido": "Antes de comprar, mide bien el espacio y protege el suelo con losetas de caucho. Empieza por lo básico: un rack, una barra olímpica, discos y un banco regulable. Con eso podrás entrenar todo el cuerpo.",
+      "imagen": "./assets/images/noticias/consejos.jpg",
+      "autor": "Entrenador Vulkania"
+    }
+  ]
+}

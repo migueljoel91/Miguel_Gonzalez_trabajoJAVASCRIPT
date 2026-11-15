@@ -31,12 +31,12 @@ section {
     flex-direction: column;
     overflow: hidden;
     background-color: var(--cards-color);
+    transition: var(--transition);
 }
 
 .producto-grid:hover,
 .producto-grid.resaltada {
     transform: translateY(-5px);
-    transition: var(--transition);
     border: 1px solid var(--accent-color);
 }
 
@@ -135,7 +135,7 @@ section {
 /* ESTILOS PARA LOS ERRORES DE VALIDACION */
 .error {
     color: var(--accent-color);
-    font-size: 0.8rem;;
+    font-size: 0.8rem;
     margin-top: -0.3rem;
 }
 
@@ -326,7 +326,7 @@ h4 {
 }
 
 .btn-reset {
-    background-color: rgb(44, 44, 44);
+    background-color: var(--filters-color);
     color: white;
     border: 1px solid var(--border-color);
     padding: 0.5rem 1rem;

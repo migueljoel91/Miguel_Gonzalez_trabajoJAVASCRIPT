@@ -165,6 +165,11 @@ function calcularPresupuesto() {
     const plazoMeses = Math.min(Number(inputPlazoMeses.value), 12);  // Limita a un máximo de 12 meses
     let descuento = 0  // En porcentaje
     
+    if (producto === 0) {
+        total.textContent = '0.00 €';
+        return;
+    }
+    
     // 5% por cada mes a partir del tercero, con un máximo del 50%
     for (let i=3; i <= plazoMeses; i++) {
         descuento += 5; // 5% de descuento inicial a partir del 3 mes y sumando 5% cada mes del precio del producto
@@ -186,10 +191,6 @@ function calcularPresupuesto() {
     const totalPresupuesto = producto - producto * (descuento / 100) + extras;
     total.textContent = `${totalPresupuesto.toFixed(2)} €`;
 
-    if (producto === 0) {
-        total.textContent = '0.00 €';
-        return;
-    }
 }
 
 // RESET DEL FORMULARIO
@@ -257,10 +258,10 @@ formulario.addEventListener('submit', function (event) {
         todoCorrecto = false;
     }
 
-    // Envio del formulario si todo es correcto
+    // "Envio" del formulario si todo es correcto
     if (todoCorrecto) {
         alert('Formulario enviado con éxito, muchas gracias');
-        formulario.submit();
+        resetFormulario();    // Debería ser "formulario.submit()" pero como no hay servidor es "reset" para evitar errores
     } else {
         alert('Formulario inválido, revise los campos obligatorios');
     }

@@ -12,12 +12,14 @@
         <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg">
         <link rel="shortcut icon" href="./assets/favicon/favicon.ico">
         <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
-        <meta name="apple-mobile-web-app-title" content="MyWebSite">
+        <meta name="apple-mobile-web-app-title" content="Vulkania Heavy">
         <link rel="manifest" href="./assets/favicon/site.webmanifest">
     <!-- Estilos y scripts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/noticias.css">
     <script src="./js/index.js" defer></script>
+    <script src="./js/noticias.js" defer></script>
 </head>
 <body>
     <header>
@@ -52,21 +54,21 @@
                 <div class="card">
                     <img class="card-img" src="./assets/images/producto1.jpg" alt="barra olímpica" width="400" height="400">
                     <h3>Barras Olímpicas</h3>
-                    <p>Alta calidad y resistencia para tus entrenamientos de powerlifting y fuerza.</p>  
+                    <p>Barra de alto rendimiento y discos para llevar tus levantamientos al siguiente nivel.</p>  
                     <a class="btn-cards" href="./views/galeria.html?categoria=Barras%20y%20discos">Ver Producto</a>        
                 </div>
 
                 <div class="card">
                     <img class="card-img" src="./assets/images/producto2.jpg" alt="mancuernas" width="400" height="400">
                     <h3>Mancuernas</h3>
-                    <p>Alta calidad y resistencia para tus entrenamientos de powerlifting y fuerza.</p>  
+                    <p>Un set versátil y duradero, ideal para completar cualquier zona de entrenamiento.</p>  
                     <a class="btn-cards" href="./views/galeria.html?categoria=Mancuernas%20y%20Kettlebells">Ver Producto</a>        
                 </div>
 
                 <div class="card">
                     <img class="card-img" src="./assets/images/producto3.jpg" alt="racks de potencia" width="400" height="400">
                     <h3>Racks de Potencia</h3>
-                    <p>Alta calidad y resistencia para tus entrenamientos de powerlifting y fuerza.</p>  
+                    <p>Estructura robusta con soportes de seguridad ajustables para entrenamientos exigentes.</p>  
                     <a class="btn-cards" href="./views/galeria.html?categoria=Racks%20y%20Bancos">Ver Producto</a>        
                 </div>
             </div>
@@ -78,7 +80,7 @@
             <div class="cards-grid">
                 <div class="card">
                     <h3>🏋️‍♂️ Calidad Extrema</h3>
-                    <p>Fabricados con acero reinforced y acabados de alta durabilidad para soportar entrenamientos intensivos diarios.</p>
+                    <p>Fabricados con acero reforzado y acabados de alta durabilidad para soportar entrenamientos intensivos diarios.</p>
                 </div>
                 <div class="card">
                     <h3>⚡ Rendimiento Máximo</h3>
@@ -92,9 +94,9 @@
         </section>
 
         <!-- Sección 4: Noticias -->
-        <section class="noticias">
+        <section id="noticias">
             <h2 class="section-title">Últimas <span>Noticias y Novedades</span></h2>
-            <div id="news-container" class="news-container">
+            <div class="news-container">
                 <p class="loading-news">Cargando noticias...</p>
             </div>
         </section>
@@ -105,6 +107,7 @@
             <p>Personaliza tu pedido con nuestros productos, plazos y extras en cuestión de segundos.</p>
             <a href="./views/presupuesto.html" class="btn">Configurar Presupuesto Ahora</a>
         </section>
+
     </main>
 
     <footer>
