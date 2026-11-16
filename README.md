@@ -2,7 +2,7 @@
 
 Sitio web de **Vulkania Heavy**, una empresa ficticia de equipamiento de gimnasio (racks, barras, mancuernas, bancos y accesorios) con sede en Santa Cruz de Tenerife y envíos a Canarias.
 
-Trabajo Final del módulo **JavaScript Avanzado** del curso **Desarrollo Web de Davante**.
+Trabajo Final del módulo **JavaScript Avanzado** del curso **Desarrollo Web** de **Davante**.
 
 **Autor:** Miguel Yoel González Martín
 
@@ -111,6 +111,7 @@ El formulario no se envía si falta algún dato, si el plazo no es válido o si 
 - **Mapa interactivo** con OpenStreetMap y Leaflet, con un marcador propio de la empresa.
 - **Cálculo de ruta:** al pulsar en el mapa se obtiene la ubicación del usuario y se dibuja la ruta hasta la tienda, con indicaciones en español.
 - Botón de **pantalla completa** para el mapa.
+- Botón **"Cómo llegar con Google Maps"**: abre Google Maps (web o app del móvil) con la ruta desde la ubicación del usuario hasta Calle del Castillo 45. Usa un enlace de [Google Maps URLs](https://developers.google.com/maps/documentation/urls), que no necesita clave de API.
 
 ### Aviso legal y política de privacidad (`views/politica-privacidad.html`)
 
@@ -141,7 +142,8 @@ Datos identificativos, condiciones de uso, propiedad intelectual y protección d
 | [Leaflet Routing Machine](https://www.liedman.net/leaflet-routing-machine/) 3.2.12 | Cálculo de rutas                                                               |
 | [Leaflet.fullscreen](https://github.com/brunob/leaflet.fullscreen) 5.3.3           | Pantalla completa del mapa                                                     |
 | [OpenStreetMap](https://www.openstreetmap.org/)                                    | Mapas                                                                          |
-| [Font Awesome](https://fontawesome.com/) 6.5.1                                     | Iconos de redes sociales                                                       |
+| [Google Maps URLs](https://developers.google.com/maps/documentation/urls)          | Enlace "Cómo llegar" que abre la ruta en Google Maps                           |
+| [Font Awesome](https://fontawesome.com/) 6.5.1                                     | Iconos de redes sociales y del botón de ruta                                   |
 
 Las librerías se cargan por CDN con **la versión fijada**, para que una actualización externa no rompa la web.
 
@@ -160,3 +162,4 @@ Las librerías se cargan por CDN con **la versión fijada**, para que una actual
 - **Empresa ficticia:** la empresa, los productos, las noticias y los datos de contacto son inventados para el proyecto.
 - **Sin servidor (backend):** el formulario de presupuesto no envía datos a ningún sitio.
 - **Rutas del mapa:** el cálculo de rutas usa el servidor público de demostración de OSRM, pensado para pruebas y no para uso comercial.
+- **Librerías por CDN:** Leaflet y Font Awesome se descargan de internet. Sin conexión, el mapa y los iconos no se muestran, pero los enlaces y botones siguen funcionando, porque todos tienen texto o `aria-label`.
