@@ -5,6 +5,21 @@
     padding: 2rem;
 }
 
+.section-subtitle {
+    max-width: 50ch; /* en pantallas grandes no se estira demasiado */
+    margin: 0.5rem auto; /* centrado en cualquier pantalla */
+    padding: 0 1rem; /* un poco de aire a los lados en el móvil */
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: normal; /* el h2 es negrita por defecto: así solo destacan los <span> */
+    color: var(--text-main);
+}
+
+.section-subtitle span {
+    font-weight: bold;
+    color: var(--accent-text);
+}
+
 /* BOTONES DE FILTRO */
 .botones {
     display: flex;

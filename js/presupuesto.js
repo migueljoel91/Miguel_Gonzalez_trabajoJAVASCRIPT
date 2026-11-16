@@ -22,13 +22,13 @@ const campos = [
         input: document.getElementById('nombre'),
         error: document.getElementById('error-nombre'),
         regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]{2,15}$/,
-        mensaje: 'El nombre debe tener mínimo 2 letras y máximo 15',
+        mensaje: 'Solo letras, mínimo 2 y máximo 15',
     },
     {
         input: document.getElementById('apellidos'),
         error: document.getElementById('error-apellidos'),
         regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]{2,40}$/,
-        mensaje: 'Los apellidos deben tener mínimo 2 letras y máximo 40',
+        mensaje: 'Solo letras, mínimo 2 y máximo 40',
     },
     {
         input: document.getElementById('telefono'),
