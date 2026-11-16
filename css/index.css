@@ -1,12 +1,14 @@
-/* RESETEO DE VALORES POR DEFECTO */  
-*, *::before, *::after {
+/* RESETEO DE VALORES POR DEFECTO */
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;  /* Movimiento fluido al hacer clic en links */
+    scroll-behavior: smooth; /* Movimiento fluido al hacer clic en links */
 }
 
 /* VARIABLES CSS */
@@ -16,20 +18,21 @@ html {
     --text-main-header: white;
     --text-secondary: #ccc;
     --background-color: #181818;
-    --background-footer: #101010; 
+    --background-footer: #101010;
     --background-color-tema: white;
     --border-color: #333;
     --border-color-tema: #333;
-    --accent-color: #cc2b2b;           
+    --accent-color: #cc2b2b;
     --accent-color-hover: #9d1f1f;
-    --cards-color: #1e1e24;   
+    --accent-text: #f05252; /* rojo para TEXTO: contraste AA (4.5:1) sobre fondo oscuro */
+    --cards-color: #1e1e24;
     --transition: all 0.3s ease;
     --background-color-header: rgba(14, 14, 14, 0.95);
     --filters-color: #333;
 }
 
 /* Fondo claro */
-:root[data-tema="claro"] {
+:root[data-tema='claro'] {
     --background-color: #ffffff;
     --background-color-tema: #181818;
     --text-main: #111111;
@@ -39,6 +42,7 @@ html {
     --cards-color: #e5e7eb;
     --background-footer: #e5e7eb;
     --background-color-header: rgba(194, 192, 192, 0.75);
+    --accent-text: #a61b1b; /* rojo para TEXTO: contraste AA (4.5:1) sobre fondo claro */
 }
 
 body {
@@ -86,8 +90,9 @@ header {
     gap: 0.5rem;
 }
 
-.logo span, .section-title span { 
-    color: var(--accent-color); 
+.logo span,
+.section-title span {
+    color: var(--accent-text);
 }
 
 .nav-links ul {
@@ -111,7 +116,7 @@ header {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--accent-color);
+    color: var(--accent-text);
 }
 
 .tema {
@@ -132,7 +137,9 @@ header {
 
 /* SECCION 1: PORTADA */
 .banner {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../assets/images/banner.jpg') no-repeat center center/cover;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('../assets/images/banner.jpg') no-repeat center center/cover;
     height: 50vh;
     display: flex;
     align-items: center;
@@ -170,7 +177,6 @@ header {
 .btn-cards:hover {
     background-color: var(--accent-color-hover);
 }
-
 
 /* SECCION 2: PRODUCTOS DESTACADOS */
 .section-title {
@@ -284,7 +290,7 @@ footer {
     transition: var(--transition);
 }
 .footer-content a:hover {
-    color: var(--accent-color);
+    color: var(--accent-text);
 }
 
 .footer-col {
@@ -334,7 +340,6 @@ footer {
     color: var(--text-main);
 }
 
-
 /* ==========================================================
    RESPONSIVE (MEDIA QUERIES)
    Van al FINAL del archivo para poder sobrescribir las reglas
@@ -344,135 +349,132 @@ footer {
      - 480px:  móvil
      - 360px:  móvil pequeño
    ========================================================== */
- 
+
 /* Evita que las imágenes salgan de su contenedor */
 img {
     max-width: 100%;
 }
- 
- 
+
 /* TABLET HORIZONTAL (hasta 1200px) */
 @media (max-width: 1200px) {
     /* Header */
     header {
         padding: 1rem 1.5rem;
     }
- 
+
     .nav-container {
         flex-wrap: wrap;
         row-gap: 0.75rem;
         padding: 0 1rem;
     }
- 
+
     .nav-links ul {
         font-size: 1.1rem;
         gap: 1.25rem;
     }
- 
+
     .nav-links li:first-of-type {
         padding-right: 1.5rem;
     }
- 
+
     /* Portada */
     .banner-content h1 {
         font-size: 2.5rem;
     }
- 
+
     /* Tarjetas */
     .cards-grid {
         gap: 1.5rem;
         padding: 0 1.5rem 1rem;
     }
- 
+
     /* Footer */
     .footer-content {
         gap: 3rem;
     }
 }
- 
- 
+
 /* TABLET VERTICAL (hasta 768px) */
 @media (max-width: 768px) {
     /* Header: el logo y los enlaces pueden saltar de línea */
     header {
         padding: 0.75rem 1rem;
     }
- 
+
     .nav-container {
         padding: 0;
         flex-wrap: wrap;
         gap: 0.75rem;
     }
- 
+
     .logo {
         font-size: 1.5rem;
     }
- 
+
     .nav-links ul {
         font-size: 1rem;
         gap: 1rem;
         flex-wrap: wrap;
     }
- 
+
     .nav-links li:first-of-type {
         padding-right: 1rem;
     }
- 
+
     /* Portada: altura mínima en vez de fija, para que el texto nunca se corte */
     .banner {
         height: auto;
         min-height: 50vh;
         padding: 3rem 1.5rem;
     }
- 
+
     .banner-content h1 {
         font-size: 2rem;
     }
- 
+
     .banner-content p {
         font-size: 1.1rem;
         margin-bottom: 1.5rem;
     }
- 
+
     /* Productos y filosofía */
     .section-title {
         font-size: 1.7rem;
     }
- 
+
     .cards-grid {
         padding: 0 1rem 1rem;
     }
- 
+
     .card-img {
         height: 220px;
     }
- 
+
     .filosofia .card {
         padding: 1.3rem;
     }
- 
+
     /* Llamada a presupuesto */
     .llamada-presupuesto {
         margin: 1.5rem 1rem 3rem 1rem;
         padding: 1rem;
     }
- 
+
     .llamada-presupuesto h2 {
         font-size: 1.5rem;
     }
- 
+
     /* Footer: 2 columnas */
     footer {
         padding: 1.5rem 1rem 1rem;
     }
- 
+
     .footer-content {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
 }
- 
- 
+
 /* MÓVIL (hasta 480px) */
 @media (max-width: 480px) {
     /* Header: logo arriba y enlaces debajo, centrados */
@@ -480,85 +482,84 @@ img {
         flex-direction: column;
         gap: 0.5rem;
     }
- 
+
     .nav-links ul {
         flex-wrap: wrap;
         justify-content: center;
         gap: 0.4rem;
         font-size: 0.85rem;
     }
- 
+
     .nav-links li:first-of-type {
         padding-right: 0.4rem;
     }
- 
+
     /* Portada */
     .banner {
         padding: 2rem 1rem;
     }
- 
+
     .banner-content h1 {
         font-size: 1.7rem;
     }
- 
+
     .banner-content p {
         font-size: 1rem;
     }
- 
+
     .btn {
         padding: 0.65rem 1.2rem;
     }
- 
+
     /* Tarjetas: 1 columna (con minmax(280px) en pantallas de 320px la tarjeta invadía el margen derecho) */
     .section-title {
         font-size: 1.5rem;
     }
- 
+
     .cards-grid {
         grid-template-columns: 1fr;
         gap: 1.25rem;
         padding: 0 1rem 1rem;
     }
- 
+
     .card-img {
         height: 200px;
     }
- 
+
     /* Llamada a presupuesto */
     .llamada-presupuesto {
         margin: 1rem 0.75rem 2.5rem 0.75rem;
     }
- 
+
     .llamada-presupuesto h2 {
         font-size: 1.3rem;
     }
- 
+
     /* Footer: 1 columna */
     .footer-content {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
- 
+
     .social-icons {
         gap: 1.25rem;
     }
- 
+
     .footer-bottom {
         font-size: 0.8rem;
     }
 }
- 
- 
+
 /* MÓVIL PEQUEÑO (hasta 360px) */
 @media (max-width: 360px) {
     .logo {
         font-size: 1.3rem;
     }
- 
+
     .banner-content h1 {
         font-size: 1.5rem;
     }
- 
+
     .section-title {
         font-size: 1.35rem;
     }

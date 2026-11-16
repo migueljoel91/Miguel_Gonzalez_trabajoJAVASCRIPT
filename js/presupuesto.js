@@ -22,28 +22,27 @@ const campos = [
         input: document.getElementById('nombre'),
         error: document.getElementById('error-nombre'),
         regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]{2,15}$/,
-        mensaje: 'El nombre debe tener mínimo 2 letras y máximo 15'
+        mensaje: 'El nombre debe tener mínimo 2 letras y máximo 15',
     },
     {
         input: document.getElementById('apellidos'),
         error: document.getElementById('error-apellidos'),
         regex: /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]{2,40}$/,
-        mensaje: 'Los apellidos deben tener mínimo 2 letras y máximo 40'
+        mensaje: 'Los apellidos deben tener mínimo 2 letras y máximo 40',
     },
     {
         input: document.getElementById('telefono'),
         error: document.getElementById('error-telefono'),
         regex: /^\d{9}$/,
-        mensaje: 'El teléfono debe tener 9 dígitos'
+        mensaje: 'El teléfono debe tener 9 dígitos',
     },
     {
         input: document.getElementById('email'),
         error: document.getElementById('error-email'),
         regex: /^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@([a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$/,
-        mensaje: 'Ingrese un correo electrónico válido, por ejemplo: mmmm.nnn@xxxx.zzz'
-    }
+        mensaje: 'Ingrese un correo electrónico válido, por ejemplo: mmmm.nnn@xxxx.zzz',
+    },
 ];
-
 
 // FUNCIÓN DE VALIDACION DE DATOS DE CONTACTO
 function validarCampo({ input, error, regex, mensaje }, alEnviar = false) {
@@ -62,10 +61,9 @@ function validarCampo({ input, error, regex, mensaje }, alEnviar = false) {
 }
 
 // EVENTO DE VALIDACIÓN DE CAMPOS DE CONTACTO
-campos.forEach(campo => {
+campos.forEach((campo) => {
     campo.input.addEventListener('input', () => validarCampo(campo));
 });
-
 
 // VALIDACIÓN DEL PLAZO EN DÍAS Y MESES
 function validarPlazo() {
@@ -77,9 +75,9 @@ function validarPlazo() {
     errorPlazo.textContent = '';
 
     // Restaurar estado inicial si los meses son menores a 4 o está vacío
-    if (mesesNum < 4 || isNaN(mesesNum) || inputPlazoMeses.value.trim() === '') {
+    if (mesesNum < 4) {
         inputPlazoDias.disabled = false;
-        inputPlazoDias.placeholder = "min. 7 máx. 30";
+        inputPlazoDias.placeholder = 'min. 7 máx. 30';
     }
 
     // Validar meses por debajo de 1
@@ -96,9 +94,9 @@ function validarPlazo() {
 
     // Si los meses son igual o mayor a 4, desactivamos los días
     if (mesesNum >= 4) {
-        inputPlazoDias.placeholder = "";
+        inputPlazoDias.placeholder = '';
         inputPlazoDias.disabled = true;
-        inputPlazoDias.value = "";
+        inputPlazoDias.value = '';
         return true;
     }
 
@@ -167,42 +165,41 @@ function validarEnvio() {
 
 function calcularPresupuesto() {
     const producto = Number(productos.value);
-    const plazoMeses = Math.min(Number(inputPlazoMeses.value), 12);  // Limita a un máximo de 12 meses
-    let descuento = 0  // En porcentaje
-    
+    const plazoMeses = Math.min(Number(inputPlazoMeses.value), 12); // Limita a un máximo de 12 meses
+    let descuento = 0; // En porcentaje
+
     if (producto === 0) {
         total.textContent = '0.00 €';
         return;
     }
-    
+
     // 5% por cada mes a partir del tercero, con un máximo del 50%
-    for (let i=3; i <= plazoMeses; i++) {
+    for (let i = 3; i <= plazoMeses; i++) {
         descuento += 5; // 5% de descuento inicial a partir del 3 mes y sumando 5% cada mes del precio del producto
     }
-    
+
     // Aplicar extras
     let extras = 0;
-    
+
     if (extraProtector.checked) {
-        extras += 20;
+        extras += Number(extraProtector.value);
     }
     if (extraSoporte.checked) {
-        extras += 40;
+        extras += Number(extraSoporte.value);
     }
     if (extraColor.checked) {
-        extras += 50;
+        extras += Number(extraColor.value);
     }
-    
+
     const totalPresupuesto = producto - producto * (descuento / 100) + extras;
     total.textContent = `${totalPresupuesto.toFixed(2)} €`;
-
 }
 
 // RESET DEL FORMULARIO
 function resetFormulario() {
     formulario.reset();
     resaltarTarjeta();
-    document.querySelectorAll('span.error').forEach(span => span.textContent = '');
+    document.querySelectorAll('span.error').forEach((span) => (span.textContent = ''));
     inputPlazoDias.disabled = false;
     inputPlazoDias.placeholder = 'min. 7 máx. 30';
     calcularPresupuesto();
@@ -227,7 +224,6 @@ productos.addEventListener('change', validarProducto);
 checkEnvio.addEventListener('change', validarEnvio);
 
 document.getElementById('btn-reset').addEventListener('click', resetFormulario);
-
 
 // COMPROBACION FINAL Y ENVIO DEL FORMULARIO
 formulario.addEventListener('submit', function (event) {
@@ -266,12 +262,11 @@ formulario.addEventListener('submit', function (event) {
     // "Envio" del formulario si todo es correcto
     if (todoCorrecto) {
         alert('Formulario enviado con éxito, muchas gracias');
-        resetFormulario();    // Debería ser "formulario.submit()" pero como no hay servidor es "reset" para evitar errores
+        resetFormulario(); // Debería ser "formulario.submit()" pero como no hay servidor es "reset" para evitar errores
     } else {
         alert('Formulario inválido, revise los campos obligatorios');
     }
 });
-
 
 // REALZAR LAS TARJETAS CUANDO SE SELECCIONA UN PRODUCTO DE LA LISTA O SE HACE CLIC EN UNA TARJETA
 const tarjetas = document.querySelectorAll('.producto-grid');
@@ -279,7 +274,7 @@ const botonesTarjetas = document.querySelectorAll('[data-precio]');
 
 // Marca la tarjeta correspondiente al precio del producto seleccionado
 function resaltarTarjeta() {
-    tarjetas.forEach(tarjeta => {
+    tarjetas.forEach((tarjeta) => {
         const boton = tarjeta.querySelector('.btn');
         if (boton.dataset.precio === productos.value) {
             tarjeta.classList.add('resaltada');
@@ -289,13 +284,12 @@ function resaltarTarjeta() {
     });
 }
 
-// Escucha el cambio en la lista de productos y resalta la tarjeta correspondiente 
+// Escucha el cambio en la lista de productos y resalta la tarjeta correspondiente
 productos.addEventListener('change', resaltarTarjeta);
-
 
 // Escucha el clic en los botones de las tarjetas y actualiza la selección del producto
 const cajaPresupuesto = document.getElementById('total-presupuesto');
-botonesTarjetas.forEach(boton => {
+botonesTarjetas.forEach((boton) => {
     boton.addEventListener('click', () => {
         productos.value = boton.dataset.precio;
         resaltarTarjeta();

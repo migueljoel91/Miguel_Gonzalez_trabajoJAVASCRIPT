@@ -42,7 +42,7 @@
 
 .info-item a:hover {
     text-decoration: underline;
-    color: var(--accent-color);
+    color: var(--accent-text);
 }
 
 h2 {
@@ -85,7 +85,7 @@ h2 {
 }
 
 .custom-popup span {
-    color: var(--accent-color)
+    color: var(--accent-text);
 }
 
 .custom-popup .leaflet-popup-tip {
@@ -100,11 +100,18 @@ h2 {
 }
 
 /* Estilo del "piquito" del tooltip */
-.custom-tooltip.leaflet-tooltip-right::before  { border-right-color: var(--cards-color); }
-.custom-tooltip.leaflet-tooltip-left::before   { border-left-color: var(--cards-color);  }
-.custom-tooltip.leaflet-tooltip-top::before    { border-top-color: var(--cards-color);  }
-.custom-tooltip.leaflet-tooltip-bottom::before { border-bottom-color: var(--cards-color); }
-
+.custom-tooltip.leaflet-tooltip-right::before {
+    border-right-color: var(--cards-color);
+}
+.custom-tooltip.leaflet-tooltip-left::before {
+    border-left-color: var(--cards-color);
+}
+.custom-tooltip.leaflet-tooltip-top::before {
+    border-top-color: var(--cards-color);
+}
+.custom-tooltip.leaflet-tooltip-bottom::before {
+    border-bottom-color: var(--cards-color);
+}
 
 /* SUSTITUCION DE LAS CLASES DEL PLUGIN PARA VER BIEN LA RUTA YA QUE EL PLUGIN ORIGINAL TRAE COLORES FIJOS */
 .leaflet-routing-container,

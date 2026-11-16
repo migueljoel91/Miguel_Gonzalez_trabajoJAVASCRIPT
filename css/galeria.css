@@ -69,7 +69,9 @@
     transform: scale(0.5);
     z-index: 1;
     pointer-events: none;
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    transition:
+        transform 0.5s ease,
+        opacity 0.5s ease;
 }
 
 /* Las slides y los dots ocultos por el filtro (atributo hidden) */
@@ -178,7 +180,9 @@
     border-radius: 50%;
     background-color: var(--border-color-tema);
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    transition:
+        background-color 0.3s,
+        transform 0.3s;
 }
 
 .dot.active {
@@ -223,6 +227,37 @@
 
 .boton-lightbox:hover {
     transform: scale(1.2);
+}
+
+/* PANTALLAS GRANDES: carrusel más grande para aprovechar el espacio */
+@media (min-width: 1200px) {
+    .carousel-container {
+        width: 720px;
+        height: 560px;
+    }
+
+    .carousel-track {
+        height: 480px;
+    }
+
+    .carousel-slide {
+        width: 560px;
+        height: 420px;
+    }
+
+    .carousel-slide p {
+        font-size: 1.15rem;
+        padding: 14px;
+    }
+
+    /* Flechas más separadas para que no tapen las imágenes laterales */
+    .carousel-btn.prev {
+        left: -190px;
+    }
+
+    .carousel-btn.next {
+        right: -190px;
+    }
 }
 
 /* MÓVIL Y TABLET: las flechas dejan de salirse de la pantalla */
