@@ -40,7 +40,7 @@ async function cargarNoticias() {
         contenedor.innerHTML = contenido
         
         // 6. Añadimos los event listeners a los botones "Leer más" para expandir o contraer la noticia
-        const botonesLeerMas = document.querySelectorAll('.leer-mas')
+        const botonesLeerMas = contenedor.querySelectorAll('.leer-mas')
         
         botonesLeerMas.forEach(boton => {
             boton.addEventListener('click', () => {

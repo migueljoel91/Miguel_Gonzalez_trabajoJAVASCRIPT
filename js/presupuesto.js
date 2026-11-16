@@ -1,4 +1,4 @@
-// VALIDACION DE DATOS DE CONTACTO
+// PRESUPUESTO: VALIDACIÓN Y CÁLCULO
 
 // ===== ELEMENTOS =====
 
@@ -84,9 +84,10 @@ function validarPlazo() {
 
     // Validar meses por debajo de 1
     if (inputPlazoMeses.value.trim() !== '' && mesesNum < 1) {
-    errorPlazo.textContent = 'El plazo mínimo en meses es de 1';
-    return false;
-}    
+        errorPlazo.textContent = 'El plazo mínimo en meses es de 1';
+        return false;
+    }
+
     // Validar meses máximos (12)
     if (mesesNum > 12) {
         errorPlazo.textContent = 'El plazo máximo en meses es de 12';
@@ -101,8 +102,12 @@ function validarPlazo() {
         return true;
     }
 
-    // Si hay de 1 a 3 meses, permitimos ignorar los días y borramos cualquier error previo
+    // Si hay de 1 a 3 meses, los días son opcionales (0 a 29)
     if (mesesNum >= 1 && mesesNum <= 3) {
+        if (dias !== '' && (diasNum < 0 || diasNum > 29)) {
+            errorPlazo.textContent = 'Con meses, los días adicionales van de 0 a 29';
+            return false;
+        }
         return true;
     }
 
@@ -289,20 +294,13 @@ productos.addEventListener('change', resaltarTarjeta);
 
 
 // Escucha el clic en los botones de las tarjetas y actualiza la selección del producto
+const cajaPresupuesto = document.getElementById('total-presupuesto');
 botonesTarjetas.forEach(boton => {
     boton.addEventListener('click', () => {
         productos.value = boton.dataset.precio;
         resaltarTarjeta();
         calcularPresupuesto();
         validarProducto();
-    });
-});
-
-
-// Desplazar la vista hasta el total del presupuesto al hacer clic en un botón de tarjeta
-const cajaPresupuesto = document.getElementById('total-presupuesto');
-botonesTarjetas.forEach(boton => {
-    boton.addEventListener('click', function() {
-        cajaPresupuesto.scrollIntoView({ behavior: 'smooth' });
+        cajaPresupuesto.scrollIntoView({ behavior: 'smooth' }); // Desplaza la vista hasta el total del presupuesto al hacer clic en un botón de tarjeta
     });
 });

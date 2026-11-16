@@ -3,7 +3,7 @@ const botonTema = document.getElementById('tema');
 
 function aplicarTema(tema) {
     document.documentElement.dataset.tema = tema;
-    botonTema.textContent = tema === 'claro' ? '🌙 ' : '☀️ ';
+    botonTema.textContent = tema === 'claro' ? '🌙' : '☀️';
     localStorage.setItem('tema', tema);   // recuerda la elección al recargar
 }
 

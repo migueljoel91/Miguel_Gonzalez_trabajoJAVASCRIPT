@@ -17,7 +17,7 @@ const iconoVulkania = L.icon({
 });
 
 const iconoCliente = L.icon({
-    iconUrl: "../assets/images/pene.png",
+    iconUrl: "../assets/images/icono-cliente.png",
     iconSize: [40, 40],
     iconAnchor: [20, 40],
     popupAnchor: [2, -40],
@@ -83,7 +83,7 @@ function calcularUbicacion() {
             addWaypoints: false,   // evita que el usuario añada paradas al hacer clic en la línea
             createMarker: function(i, wp) {
                 if (i === 0) {
-                    const marcadorCliente = L.marker(wp.latLng, { icon: iconoCliente }).bindPopup("Eres un homosexual curioso");
+                    const marcadorCliente = L.marker(wp.latLng, { icon: iconoCliente }).bindPopup("Estás aquí");
                     
                     marcadorCliente.on('add', () => marcadorCliente.openPopup());
 

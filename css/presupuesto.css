@@ -53,9 +53,7 @@ section {
 }
 
 .card-img {
-    width: 100%;
     height: 250px;
-    object-fit: cover;
 }
 
 .shop-product-footer {
@@ -156,7 +154,7 @@ section {
 }
 
 #error-plazo {
-    grid-column: 3;     /* Coloca el error en la tercera columna */
+    grid-column: 3;         /* Coloca el error en la tercera columna */
     grid-row: 1 / span 2;   /* ocupa la altura de las dos filas */
     align-self: center;
     margin-top: 0;          /* anula el -0.3rem de .error */
@@ -165,7 +163,6 @@ section {
 
 
 /* ESTILOS PARA CONFIGURACION DEL PEDIDO */
-
 .form-pedido {
     margin: 1.5rem 0;
     border-bottom: 1px solid var(--border-color);
@@ -178,25 +175,16 @@ section {
     gap: 0.8rem;
 }
 
-.contenedor-productos p {
-    font-size: 0.8rem;
-    display: inline-block;
-    color: var(--text-secondary);
-}
-
-.contenedor-productos input,
 .contenedor-productos select,
 .contenedor-plazos input {
     background-color: var(--background-color);
     border: 1px solid var(--border-color);
     border-radius: 4px;
-    padding: 0.5rem;
     color: var(--text-main);
     padding: 0.7rem;
     font-size: 1.1rem;
 }
 
-.contenedor-productos input:focus,
 .contenedor-productos select:focus,
 .contenedor-plazos input:focus {
     outline: none;
@@ -224,10 +212,8 @@ h4 {
 
 .extras {
     display: flex;
-    flex-direction: row;
     gap: 1.2rem;
     margin-bottom: 2rem;
-    justify-content: flex-start;
     flex-wrap: wrap;
     align-items: center;
     padding: 0.3rem;
@@ -270,15 +256,10 @@ h4 {
     color: var(--text-secondary);
 }
 
-
-
-
 /* ESTILOS PARA CONDICIONES DE ENVIO */
-
 .campo-politica {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     gap: 0.5rem;
     flex-wrap: wrap;
 }
@@ -306,7 +287,6 @@ h4 {
 }
 
 /* ESTILOS DE LOS BOTONES DEL FORMULARIO */
-
 .botones {
     margin-top: 1.5rem;
 }
@@ -337,11 +317,10 @@ h4 {
 }
 
 .btn-reset:hover {
-    background-color: rgb(34, 34, 34);
+    background-color: var(--accent-color-hover);
 }
 
-
-
+/* RESPONSIVE MEDIA QUERIES */
 @media (max-width: 700px) {
     .contenedor-plazos {
         grid-template-columns: 170px;

@@ -25,6 +25,7 @@
 
 .actualizacion {
     font-style: italic;
+    color: var(--text-secondary);
 }
 
 

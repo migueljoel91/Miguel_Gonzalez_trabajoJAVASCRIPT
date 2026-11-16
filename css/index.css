@@ -33,21 +33,18 @@ html {
     --background-color: #ffffff;
     --background-color-tema: #181818;
     --text-main: #111111;
-    --text-main-header: white;
     --text-secondary: #555555;
     --border-color: #d1d5db;
     --border-color-tema: #393939;
     --cards-color: #e5e7eb;
     --background-footer: #e5e7eb;
     --background-color-header: rgba(194, 192, 192, 0.75);
-    --transition: all 0.3s ease;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--background-color);
     color: var(--text-main);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
     line-height: 1.6;
@@ -60,16 +57,13 @@ main {
 
 /* SECCION 0: HEADER */
 header {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--background-color-header);
     backdrop-filter: blur(10px);
     color: var(--text-main);
     border-bottom: 1px solid var(--border-color);
-    width: 100%;
     z-index: 1000;
     position: sticky;
     top: 0;
-    left: 0;
     padding: 1rem 2rem;
 }
 
@@ -82,8 +76,7 @@ header {
     padding: 0 2rem;
 }
 
-.logo,
-.logo a {
+.logo {
     font-size: 1.8rem;
     font-weight: 800;
     color: var(--text-main);
@@ -194,7 +187,6 @@ header {
     justify-content: center;
     gap: 2rem;
     padding: 0rem 2rem 1rem 2rem;
-    border-radius: 10px;
 }
 
 .card {
@@ -239,11 +231,6 @@ header {
     cursor: pointer;
 }
 
-.btn-cards a {
-    color: white;
-    text-decoration: none;
-}
-
 /* SECCION 3: NUESTRA FILOSOFÍA */
 .filosofia .card {
     padding: 1.7rem;
@@ -267,9 +254,6 @@ header {
 .llamada-presupuesto h2 {
     font-size: 1.7rem;
 }
-
-
-
 
 /* ESTILOS DEL FOOTER */
 footer {
@@ -351,7 +335,6 @@ footer {
 }
 
 
-
 /* ==========================================================
    RESPONSIVE (MEDIA QUERIES)
    Van al FINAL del archivo para poder sobrescribir las reglas
@@ -421,8 +404,7 @@ img {
         gap: 0.75rem;
     }
  
-    .logo,
-    .logo a {
+    .logo {
         font-size: 1.5rem;
     }
  
@@ -463,7 +445,6 @@ img {
  
     .card-img {
         height: 220px;
-        object-fit: cover;
     }
  
     .filosofia .card {
@@ -570,8 +551,7 @@ img {
  
 /* MÓVIL PEQUEÑO (hasta 360px) */
 @media (max-width: 360px) {
-    .logo,
-    .logo a {
+    .logo {
         font-size: 1.3rem;
     }
  
