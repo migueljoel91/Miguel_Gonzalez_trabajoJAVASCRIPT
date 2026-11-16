@@ -48,10 +48,10 @@ async function cargarNoticias() {
                 const texto = noticia.querySelector('.texto-noticia');
                 noticia.classList.toggle('abierta');
                 if (noticia.classList.contains('abierta')) {
-                    texto.style.maxHeight = `${texto.scrollHeight}px`; // abre justo hasta la altura real del texto
+                    texto.style.maxHeight = `${texto.scrollHeight}px`; // Abre justo hasta la altura real del texto
                     boton.textContent = 'Leer menos';
                 } else {
-                    texto.style.maxHeight = ''; // quita el estilo en línea: vuelve a las 3 líneas del CSS
+                    texto.style.maxHeight = ''; // Quita el estilo en línea: vuelve a las 3 líneas del CSS
                     boton.textContent = 'Leer más';
                 }
             });
