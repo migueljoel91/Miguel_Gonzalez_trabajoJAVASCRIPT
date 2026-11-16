@@ -2,7 +2,7 @@
 
 Sitio web de **Vulkania Heavy**, una empresa ficticia de equipamiento de gimnasio (racks, barras, mancuernas, bancos y accesorios) con sede en Santa Cruz de Tenerife y envíos a Canarias.
 
-Trabajo Final del módulo **JavaScript Avanzado** del curso **Desarrollo Web** de **Davante**.
+Trabajo Final del módulo **JavaScript Avanzado** del curso **Desarrollo Web de Davante**.
 
 **Autor:** Miguel Yoel González Martín
 
