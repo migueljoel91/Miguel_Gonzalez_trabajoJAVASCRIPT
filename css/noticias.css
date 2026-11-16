@@ -20,28 +20,31 @@
 }
 
 .categoria {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: bold;
+    text-transform: uppercase; /* LANZAMIENTOS, OFERTAS... */
+    letter-spacing: 0.05em;
     color: var(--accent-text);
-    margin-left: 1.5rem;
-    margin-top: 1rem;
+    margin: 1.25rem 1.5rem 0;
 }
 
 .noticia img {
     width: 100%;
-    height: 250px;
+    aspect-ratio: 16 / 10; /* misma forma en todas las columnas */
     object-fit: cover;
 }
 
 .contenido-noticia {
-    padding: 1.5rem 1.5rem;
+    padding: 0.5rem 1.5rem 0;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.6rem;
 }
 
 .contenido-noticia h3 {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    min-height: 3.9em; /* hueco para 3 líneas: todas las tarjetas miden igual */
 }
 
 .contenido-noticia time {
@@ -56,10 +59,10 @@
 }
 
 .botones-noticia {
+    margin-top: auto; /* empuja el botón al fondo: todos a la misma altura */
     display: flex;
     justify-content: center;
-    padding: 1rem;
-    margin-bottom: 0.5rem;
+    padding: 1rem 1.5rem 1.5rem;
 }
 .botones-noticia button {
     background-color: var(--accent-color);
@@ -76,16 +79,16 @@
 
 /* TEXTO DIFUMINADO */
 
-/* Caja del texto: cerrada solo deja ver unas 2-3 líneas */
+/* Caja del texto: cerrada deja ver exactamente 3 líneas */
 .texto-noticia {
     position: relative;
-    max-height: 85px;
+    max-height: 4.8em; /* 3 líneas x line-height 1.6 */
     overflow: hidden;
     transition: max-height 0.5s ease;
 }
 
-.texto-noticia p {
-    margin: 0 0 1rem 0;
+.texto-noticia p + p {
+    margin-top: 0.75rem;
 }
 
 /* Capa encima del texto que va de transparente al color de la tarjeta */
@@ -95,17 +98,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 85px;
-    background: linear-gradient(to bottom, transparent, var(--cards-color));
+    height: 2em; /* difumina la última línea */
+    background: linear-gradient(to bottom, transparent, var(--cards-color) 85%);
     pointer-events: none; /* no molesta al hacer clic */
     transition: opacity 0.3s ease;
 }
 
-/* Tarjeta abierta: se ve todo el texto y desaparece el difuminado */
-.noticia.abierta .texto-noticia {
-    max-height: 500px;
-}
-
+/* Tarjeta abierta: el max-height lo pone noticias.js con la altura real del texto,
+   así la animación dura lo mismo al abrir y al cerrar (sin parón) */
 .noticia.abierta .texto-noticia::after {
     opacity: 0;
 }
@@ -115,11 +115,19 @@
     #noticias .news-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .contenido-noticia h3 {
+        min-height: 2.6em; /* con 2 columnas los títulos caben en 2 líneas */
+    }
 }
 
 @media (max-width: 600px) {
     #noticias .news-container {
         grid-template-columns: minmax(0, 400px); /* 1 columna, máx. 400px */
         justify-content: center; /* centrada */
+    }
+
+    .contenido-noticia h3 {
+        min-height: 0; /* 1 columna: cada tarjeta va sola, no hace falta igualar */
     }
 }
