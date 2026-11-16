@@ -289,6 +289,9 @@ h4 {
 /* ESTILOS DE LOS BOTONES DEL FORMULARIO */
 .botones {
     margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .btn-submit {
@@ -310,7 +313,6 @@ h4 {
     color: white;
     border: 1px solid var(--border-color);
     padding: 0.5rem 1rem;
-    margin-left: 1rem;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -321,14 +323,27 @@ h4 {
 }
 
 /* RESPONSIVE MEDIA QUERIES */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
     .contenedor-plazos {
-        grid-template-columns: 170px;
-        row-gap: 0.5rem;          
+        grid-template-columns: 1fr;  
+        row-gap: 0.5rem;
     }
 
     #error-plazo {
         grid-column: auto;
         grid-row: auto;
+    }
+
+    .form {
+        margin: 2rem 1rem 4rem;         /* separa el formulario de los bordes */
+        padding: 1.5rem;
+    }
+
+    .form-datos {
+        grid-template-columns: 1fr;     /* nombre, apellidos, teléfono y email en una columna */
+    }
+
+    .productos-destacados {
+        margin: 2rem 1rem;
     }
 }
