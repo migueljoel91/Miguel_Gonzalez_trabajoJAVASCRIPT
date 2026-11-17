@@ -6,12 +6,12 @@
 }
 
 .section-subtitle {
-    max-width: 50ch; /* en pantallas grandes no se estira demasiado */
-    margin: 0.5rem auto; /* centrado en cualquier pantalla */
-    padding: 0 1rem; /* un poco de aire a los lados en el móvil */
+    max-width: 50ch;
+    margin: 0.5rem auto;
+    padding: 0 1rem;
     text-align: center;
     font-size: 1.1rem;
-    font-weight: normal; /* el h2 es negrita por defecto: así solo destacan los <span> */
+    font-weight: normal;
     color: var(--text-main);
 }
 
@@ -49,7 +49,7 @@
     background-color: var(--accent-color);
 }
 
-/* CARRUSEL */
+/* ESTILO DEL CARRUSEL */
 .carousel-container {
     position: relative;
     width: 450px;
@@ -119,7 +119,7 @@
     background: var(--border-color-tema);
 }
 
-/* ESTADOS DE POSICIÓN DEL CARRUSEL */
+/* Estados de posición del carrusel */
 .carousel-slide.active {
     opacity: 1;
     transform: translateX(0) scale(1);
@@ -144,7 +144,7 @@
     transform: translateX(45%) scale(0.8);
 }
 
-/* FLECHAS DEL CARRUSEL */
+/* Flechas del carrusel */
 .carousel-btn {
     position: absolute;
     top: 42%;
@@ -180,7 +180,7 @@
     font-size: 1.5rem;
 }
 
-/* PUNTOS INDICADORES (DOTS) */
+/* Puntos indicadores (dots) */
 .carousel-dots {
     display: flex;
     justify-content: center;

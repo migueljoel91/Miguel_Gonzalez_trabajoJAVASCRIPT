@@ -242,6 +242,8 @@ header {
     padding: 1.7rem;
 }
 
+/* La sección 4: Noticias está gestionada en noticias.css y noticias.js */
+
 /* SECCION 5: LLAMADA A PRESUPUESTO */
 .llamada-presupuesto {
     text-align: center;
@@ -340,15 +342,13 @@ footer {
     color: var(--text-main);
 }
 
-/* ==========================================================
-   RESPONSIVE (MEDIA QUERIES)
-   Van al FINAL del archivo para poder sobrescribir las reglas
-   de arriba. Enfoque "desktop-first": se usa max-width.
-     - 1200px: tablet horizontal / portátil pequeño
-     - 768px:  tablet vertical
-     - 480px:  móvil
-     - 360px:  móvil pequeño
-   ========================================================== */
+/* RESPONSIVE (MEDIA QUERIES)
+Enfoque "desktop-first": se usa max-width.
+    - 1200px: tablet horizontal / portátil pequeño
+    - 768px:  tablet vertical
+    - 480px:  móvil
+    - 360px:  móvil pequeño
+*/
 
 /* Evita que las imágenes salgan de su contenedor */
 img {
@@ -377,18 +377,15 @@ img {
         padding-right: 1.5rem;
     }
 
-    /* Portada */
     .banner-content h1 {
         font-size: 2.5rem;
     }
 
-    /* Tarjetas */
     .cards-grid {
         gap: 1.5rem;
         padding: 0 1.5rem 1rem;
     }
 
-    /* Footer */
     .footer-content {
         gap: 3rem;
     }

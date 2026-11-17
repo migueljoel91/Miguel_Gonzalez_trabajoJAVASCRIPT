@@ -79,7 +79,7 @@
 
 /* TEXTO DIFUMINADO */
 
-/* Caja del texto: cerrada deja ver exactamente 3 líneas */
+/* Caja del texto: cerrada deja ver aproximadamente 3 líneas */
 .texto-noticia {
     position: relative;
     max-height: 4.8em; /* 3 líneas x line-height 1.6 */
@@ -124,10 +124,10 @@
 @media (max-width: 600px) {
     #noticias .news-container {
         grid-template-columns: minmax(0, 400px); /* 1 columna, máx. 400px */
-        justify-content: center; /* centrada */
+        justify-content: center;
     }
 
     .contenido-noticia h3 {
-        min-height: 0; /* 1 columna: cada tarjeta va sola, no hace falta igualar */
+        min-height: 0;
     }
 }
