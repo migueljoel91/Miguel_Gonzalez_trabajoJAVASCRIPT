@@ -267,7 +267,8 @@ header {
 footer {
     background-color: var(--background-footer);
     color: var(--text-secondary);
-    border-top: 1px solid var(--border-color);
+    border-top: none;
+    position: relative;
     padding: 2rem 2rem 1.5rem;
     font-size: 1rem;
 }
@@ -279,6 +280,17 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 5rem;
     margin-bottom: 2rem;
+}
+
+/* Barra de gradiente en el footer */
+.footer-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, transparent, var(--accent-color), transparent);
 }
 
 .footer-col h3 {
@@ -342,6 +354,10 @@ footer {
     color: var(--text-main);
 }
 
+img {
+    max-width: 100%;
+}
+
 /* RESPONSIVE (MEDIA QUERIES)
 Enfoque "desktop-first": se usa max-width.
     - 1200px: tablet horizontal / portátil pequeño
@@ -351,9 +367,6 @@ Enfoque "desktop-first": se usa max-width.
 */
 
 /* Evita que las imágenes salgan de su contenedor */
-img {
-    max-width: 100%;
-}
 
 /* TABLET HORIZONTAL (hasta 1200px) */
 @media (max-width: 1200px) {
