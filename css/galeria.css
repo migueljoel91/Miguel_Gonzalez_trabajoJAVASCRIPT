@@ -20,6 +20,27 @@
     color: var(--accent-text);
 }
 
+/* BOTON CAMBIAR MODO */
+.cambiar-modo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cambiar-modo button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--filters-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 1.5rem;
+}
+
+.cambiar-modo button:hover {
+    background-color: var(--accent-color-hover);
+}
+
 /* BOTONES DE FILTRO */
 .botones {
     display: flex;
@@ -49,7 +70,45 @@
     background-color: var(--accent-color);
 }
 
-/* ESTILO DEL CARRUSEL */
+/* ESTILO DEL MODO TARJETA */
+.tarjetas-track {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 350px));
+    justify-content: center;
+    gap: 2rem;
+    padding: 0rem 2rem 1rem 2rem;
+}
+
+.tarjeta-modo {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden; /* para que la imagen respete las esquinas redondeadas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.tarjeta-modo img {
+    width: 100%; /* ocupa el ancho de la tarjeta (máx. 350px por el grid) */
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.tarjeta-modo p {
+    padding: 10px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    background: var(--border-color-tema);
+}
+
+/* Ocultar tarjetas en modo tarjeta si tienen el atributo hidden por los filtros*/
+.tarjeta-modo[hidden] {
+    display: none;
+}
+
+/* ESTILO DEL MODOCARRUSEL */
 .carousel-container {
     position: relative;
     width: 450px;
@@ -89,7 +148,7 @@
         opacity 0.5s ease;
 }
 
-/* Las slides y los dots ocultos por el filtro (atributo hidden) */
+/* Las slides y los dots ocultos por el filtro */
 .carousel-slide[hidden],
 .dot[hidden] {
     display: none;
@@ -297,5 +356,9 @@
 
     .carousel-btn.next {
         right: 5px;
+    }
+
+    .tarjetas-track {
+        padding: 0 0 1rem 0;
     }
 }

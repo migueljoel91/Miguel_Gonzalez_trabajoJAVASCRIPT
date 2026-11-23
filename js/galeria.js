@@ -43,12 +43,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         diapositivas.forEach((diapositiva) => diapositiva.classList.remove('active', 'prev', 'next'));
 
-        visibles[indiceActual].classList.add('active');
-        if (total > 1) {
-            visibles[(indiceActual + 1) % total].classList.add('next');
-        }
-        if (total > 2) {
-            visibles[(indiceActual - 1 + total) % total].classList.add('prev');
+        // ¿Estamos en modo tarjeta? Basta con mirar la primera diapositiva
+        const modoTarjetas = diapositivas[0].classList.contains('tarjeta-modo');
+
+        // Solo en modo carrusel se colocan active / prev / next
+        if (!modoTarjetas) {
+            visibles[indiceActual].classList.add('active');
+            if (total > 1) {
+                visibles[(indiceActual + 1) % total].classList.add('next');
+            }
+            if (total > 2) {
+                visibles[(indiceActual - 1 + total) % total].classList.add('prev');
+            }
         }
 
         // Cada punto se oculta si su diapositiva está oculta y se marca si es la activa
@@ -88,6 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7. Clic en una diapositiva: la activa abre el visor, las laterales navegan
     diapositivas.forEach((diapositiva) => {
         diapositiva.addEventListener('click', () => {
+            // Si esta en modo tarjeta, solo abre el visor
+            if (diapositiva.classList.contains('tarjeta-modo')) {
+                indiceActual = obtenerDiapositivasVisibles().indexOf(diapositiva);
+                abrirVisor(diapositiva.querySelector('img'));
+                return;
+            }
+            // Modo carrusel: la activa abre el visor, las laterales navegan
             if (diapositiva.classList.contains('active')) {
                 abrirVisor(diapositiva.querySelector('img'));
             } else {
@@ -126,4 +139,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoriaUrl = new URLSearchParams(window.location.search).get('categoria');
     const existe = Array.from(filtros).some((boton) => boton.value === categoriaUrl);
     aplicarFiltro(existe ? categoriaUrl : 'Todos');
+
+    // 11. Cambiar entre modo carrusel y modo tarjetas
+    const botonCambiarModo = document.getElementById('cambiar-modo');
+
+    botonCambiarModo.addEventListener('click', () => {
+        if (botonCambiarModo.textContent.trim() === 'Modo tarjeta') {
+            botonCambiarModo.textContent = 'Modo carrusel';
+        } else {
+            botonCambiarModo.textContent = 'Modo tarjeta';
+        }
+        cambiarModo();
+    });
+
+    function cambiarModo() {
+        const contenedor = document.getElementById('carousel-container');
+        const contenedorDiapositivas = document.getElementById('carousel-track');
+        const tarjetas = Array.from(contenedorDiapositivas.children);
+
+        contenedor.classList.toggle('carousel-container');
+        contenedorDiapositivas.classList.toggle('carousel-track');
+        contenedorDiapositivas.classList.toggle('tarjetas-track');
+
+        tarjetas.forEach((tarjeta) => {
+            tarjeta.classList.toggle('carousel-slide');
+            tarjeta.classList.toggle('tarjeta-modo');
+            tarjeta.classList.remove('active', 'next', 'prev');
+        });
+
+        // ¿En qué modo estamos ahora?
+        const modoTarjetas = contenedorDiapositivas.classList.contains('tarjetas-track');
+
+        // Flechas y puntos: ocultos en tarjetas, visibles en carrusel
+        const display = modoTarjetas ? 'none' : '';
+        botonAnterior.style.display = display;
+        botonSiguiente.style.display = display;
+        contenedorPuntos.style.display = display;
+
+        // Al volver al carrusel, recolocar active / prev / next
+        if (!modoTarjetas) {
+            actualizarCarrusel();
+        }
+    }
 });
