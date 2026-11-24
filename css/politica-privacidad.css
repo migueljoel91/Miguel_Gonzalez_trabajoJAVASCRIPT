@@ -23,6 +23,10 @@
     margin: 1rem auto 1rem 5rem;
 }
 
+.legal-content a {
+    color: var(--accent-text);
+}
+
 .actualizacion {
     font-style: italic;
     color: var(--text-secondary);

@@ -115,7 +115,11 @@ El formulario no se envía si falta algún dato, si el plazo no es válido o si 
 
 ### Aviso legal y política de privacidad (`views/politica-privacidad.html`)
 
-Datos identificativos, condiciones de uso, propiedad intelectual y protección de datos (RGPD).
+Datos identificativos, condiciones de uso, propiedad intelectual y protección de datos (RGPD). Además informa de:
+
+- **Geolocalización:** solo se usa si el usuario pulsa en el mapa y acepta el permiso del navegador; no se guarda ni se envía a la empresa, y las coordenadas solo van al servicio de rutas OSRM.
+- **Almacenamiento local:** la web no usa cookies propias; solo guarda el tema elegido en `localStorage`.
+- **Servicios de terceros:** OpenStreetMap, OSRM, los CDN (unpkg y cdnjs) y Google Maps, con qué datos reciben y enlaces a sus políticas de privacidad.
 
 ---
 
