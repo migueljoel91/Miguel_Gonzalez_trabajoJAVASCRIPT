@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
         botonSiguiente.style.display = display;
         contenedorPuntos.style.display = display;
 
-        // Al volver al carrusel, recolocar active / prev / next
+        // Al volver al carrusel, recoloca active / prev / next
         if (!modoTarjetas) {
             actualizarCarrusel();
         }
